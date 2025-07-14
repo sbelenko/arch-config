@@ -1,0 +1,7 @@
+show=drun
+allow_images=true
+width=580
+height=550
+no_actions=true
+columns=2
+normal_window=true

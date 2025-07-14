@@ -1,0 +1,26 @@
+* {
+  font-family: 'Inter', monospace;
+  font-size: 14px;
+}
+#window {
+    all:unset;
+    border: 2px solid #333;
+    background-color: #1e1e1e;
+}
+#input {
+    all:unset;
+    margin-bottom: 20px;
+    border: 2px solid rgb(109, 109, 109);
+    padding: 10px;
+}
+#outer-box {
+    padding: 30px;
+}
+#img {
+    margin-right: 10px;
+    padding: 5px;
+    min-width: 36px;
+}
+.entry {
+    all:unset;
+}
