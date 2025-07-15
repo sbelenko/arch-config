@@ -1,26 +1,42 @@
 * {
-  font-family: 'Inter', monospace;
-  font-size: 14px;
+    font-family: 'Inter', monospace;
+    font-size: 14px;
+    outline: none;
 }
+
 #window {
-    all:unset;
-    border: 2px solid #333;
-    background-color: #1e1e1e;
+    all: unset;
 }
-#input {
-    all:unset;
-    margin-bottom: 20px;
-    border: 2px solid rgb(109, 109, 109);
-    padding: 10px;
-}
+
 #outer-box {
-    padding: 30px;
+    padding: 20px;
+    background-color: #21222d;
+    border-radius: 5px;
+    border: 2px solid #171821;
 }
+
+#input {
+    all: unset;
+    margin-bottom: 20px;
+    border: 2px solid #171821;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+#input image {
+    color: #fff;
+}
+
 #img {
     margin-right: 10px;
-    padding: 5px;
-    min-width: 36px;
 }
+
 .entry {
-    all:unset;
+    all: unset;
+    padding: 8px;
+}
+
+#entry:selected {
+    border-radius: 2px;
+    background-color: #171821;
 }
