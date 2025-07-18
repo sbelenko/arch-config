@@ -6,6 +6,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
+    // "margin-bottom": 20,
+
+    "reload_style_on_change": true,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap"
@@ -15,6 +18,7 @@
     ],
     "modules-right": [
         "hyprland/language",
+        "bluetooth",
         "mpd",
         "idle_inhibitor",
         "pulseaudio",
