@@ -7,10 +7,15 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   // "margin-bottom": 20,
-
   "reload_style_on_change": true,
-  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "tray"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "hyprland/language",
     "bluetooth",
@@ -19,14 +24,13 @@
     "pulseaudio",
     "network",
     // "battery",
-    "clock",
-    "tray",
+    "clock"
     // "custom/power"
   ],
   "hyprland/language": {
     "format": "{}",
     "format-en": "US",
-    "format-ru": "UA(KH)",
+    "format-ru": "UA(KH)"
   },
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -87,7 +91,13 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -113,7 +123,11 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""],
+      "default": [
+        "",
+        "",
+        ""
+      ],
     },
     "on-click": "pavucontrol",
   },
