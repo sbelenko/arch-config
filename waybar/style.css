@@ -1,4 +1,4 @@
-@define-color background #f8f8f2;
+@define-color background rgba(255, 255, 255, 0.08);
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -6,11 +6,13 @@
     font-size: 12px;
     margin: 0 2px;
     padding: 0 5px;
+    color: #93B1A6;
+    border-radius: 5px;
 }
 
 /* waybar */
 #waybar {
-    background-color: silver;
+    background-color: #0d1117;
 }
 
 /* workspaces */
@@ -37,25 +39,25 @@
 
 /* bluetooth */
 #bluetooth {
-    background-color: burlywood;
+    background-color: @background;
 }
 
 /* idle_inhibitor */
 #idle_inhibitor {
-    background-color: crimson;
+    background-color: @background;
 }
 
 /* pulseaudio */
 #pulseaudio {
-    background-color: cadetblue;
+    background-color: @background;
 }
 
 /* network */
 #network {
-    background-color: hotpink;
+    background-color: @background;
 }
 
 /* clock */
 #clock {
-    background-color: yellowgreen;
+    background-color: @background;
 }
