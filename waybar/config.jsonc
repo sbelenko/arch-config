@@ -27,6 +27,13 @@
     "clock"
     // "custom/power"
   ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    }
+  },
   "hyprland/language": {
     "format": "{}",
     "format-en": "US",
