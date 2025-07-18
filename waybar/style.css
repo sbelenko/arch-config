@@ -1,9 +1,16 @@
+@define-color background #f8f8f2;
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    all: unset;
     font-family: FiraCode;
     font-size: 12px;
-    margin: 0 5px;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+
+/* waybar */
+#waybar {
+    background-color: silver;
 }
 
 /* workspaces */
@@ -11,14 +18,19 @@
     background-color: red;
 }
 
+/* tray */
+#tray {
+    background-color: teal;
+}
+
 /* window */
 #window {
-    background-color: green;
+    background-color: @background;
 }
 
 /* language */
 #language {
-    background-color: blueviolet;
+    background-color: @background;
 }
 
 /* mpd */
