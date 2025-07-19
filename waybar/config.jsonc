@@ -9,6 +9,7 @@
   // "margin-bottom": 20,
   "reload_style_on_change": true,
   "modules-left": [
+    "custom/apps",
     "hyprland/workspaces",
     "hyprland/submap",
     "tray"
@@ -27,6 +28,10 @@
     "clock"
     // "custom/power"
   ],
+  "custom/apps": {
+    "format": "󰾟 Applications",
+    "on-click": "wofi --show drun"
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
