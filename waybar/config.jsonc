@@ -86,7 +86,7 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     },
-    "format-alt": "{:%d-%m-%Y}"
+    "cursor": false // or "format-alt": "{:%d-%m-%Y}"
   },
   "custom/notifications": {
     "format": "{icon}",
