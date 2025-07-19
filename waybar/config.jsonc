@@ -8,6 +8,7 @@
   // Choose the order of the modules
   // "margin-bottom": 20,
   "reload_style_on_change": true,
+  "gtk-layer-shell": true, //// HZ
   "modules-left": [
     "custom/apps",
     "hyprland/workspaces",
@@ -31,7 +32,7 @@
     // "custom/power"
   ],
   "custom/apps": {
-    "format": "󰾟 Apps",
+    "format": "󰍜 Apps",
     "on-click": "wofi --show drun"
   },
   "hyprland/workspaces": {
