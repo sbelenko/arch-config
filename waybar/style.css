@@ -9,6 +9,17 @@
     color: #93B1A6;
 }
 
+/* tooltip {
+  background: blue;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: green;
+}
+tooltip label{
+  color: red;
+} */
+
 /* waybar */
 #waybar {
     background-color: #0d1117;

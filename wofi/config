@@ -6,3 +6,4 @@ no_actions=true
 columns=2
 #normal_window=true
 prompt=Search...
+insensitive=true

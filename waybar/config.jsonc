@@ -28,8 +28,8 @@
     "network",
     // "battery",
     "clock",
-    "custom/notifications"
-    // "custom/power"
+    "custom/notifications",
+    "custom/powermenu"
   ],
   "custom/apps": {
     "format": "󰍜 Apps",
@@ -87,6 +87,10 @@
       "on-scroll-down": "shift_down"
     },
     "cursor": false // or "format-alt": "{:%d-%m-%Y}"
+  },
+  "custom/powermenu": {
+    "format" : "",
+    "on-click": "wlogout"
   },
   "custom/notifications": {
     "format": "{icon}",
