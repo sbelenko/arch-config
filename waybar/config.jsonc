@@ -12,7 +12,8 @@
     "custom/apps",
     "hyprland/workspaces",
     "hyprland/submap",
-    "tray"
+    "tray",
+    "mpris"
   ],
   "modules-center": [
     "hyprland/window"
@@ -39,6 +40,19 @@
       "default": "",
       "active": ""
     }
+  },
+  "mpris": {
+    "format": "{player_icon}",
+    "format-paused": "<span color='grey'>{status_icon}</span>",
+    "max-length": 50,
+    "player-icons": {
+      "default": "⏸",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "▶"
+    }
+    // "ignored-players": ["firefox"]
   },
   "hyprland/language": {
     "format": "{}",
