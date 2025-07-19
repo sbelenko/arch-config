@@ -29,7 +29,7 @@
     // "custom/power"
   ],
   "custom/apps": {
-    "format": "󰾟 Applications",
+    "format": "󰾟 Apps",
     "on-click": "wofi --show drun"
   },
   "hyprland/workspaces": {
