@@ -25,4 +25,3 @@ sudo pacman -S "${packages[@]}" --noconfirm
 
 # System setup
 sudo systemctl enable sddm # Enable sddm
-
