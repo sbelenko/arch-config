@@ -34,6 +34,25 @@ sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen
 sudo locale-gen
 # -------- End Locale --------
 
-# Display a message before the Hyprland setup
+# -------- Display a message before the Hyprland setup --------
 echo "Starting Hyprland setup..."
+CONFIG_FILE="$HOME/.config/hypr/hyprland.conf"
+BACKUP_FILE="${CONFIG_FILE}.bak-$(date +%Y-%m-%d_%H-%M-%S)"
 
+# 1. Create a backup of the configuration file
+if [ -f "$CONFIG_FILE" ]; then
+    cp "$CONFIG_FILE" "$BACKUP_FILE"
+    echo "Backup created: $BACKUP_FILE"
+else
+    echo "Error: Configuration file not found at $CONFIG_FILE"
+    exit 1
+fi
+
+# 2. Modify kb_layout
+sed -i 's/kb_layout = us/kb_layout = us,ru/' "$CONFIG_FILE"
+
+# 3. Modify kb_options
+sed -i 's/kb_options = /kb_options = grp:alt_shift_toggle/' "$CONFIG_FILE"
+
+# 4. Modify natural_scroll
+sed -i 's/natural_scroll = false/natural_scroll = true/' "$CONFIG_FILE"
