@@ -25,3 +25,15 @@ sudo pacman -S "${packages[@]}" --noconfirm
 
 # Enable the display manager to start on boot
 sudo systemctl enable sddm # Enable sddm
+
+# -------- Locale --------
+# Find and uncomment the line for ru_UA.UTF-8 in /etc/locale.gen
+sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen
+
+# Generate the locales
+sudo locale-gen
+# -------- End Locale --------
+
+# Display a message before the Hyprland setup
+echo "Starting Hyprland setup..."
+
