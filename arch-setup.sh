@@ -9,6 +9,7 @@ packages=(
   kitty # Terminal
   hyprland # Tiling Wayland compositor
   hyprpaper # Wallpaper utility
+  hypridle # Idle screen manager
   hyprlock # Screen locker
   xdg-desktop-portal-hyprland # XDG portal for Wayland apps
   sddm # Display manager
