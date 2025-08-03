@@ -40,8 +40,8 @@ sudo locale-gen
 # -------- Display a message before the Hyprland setup --------
 echo "Starting Hyprland setup..."
 # Remove base config and copy my
-rm -r -f "$HOME/.config/hypr/"
-cp "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
+rm -r "$HOME/.config/hypr/"
+cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
 
 # wallpapers
 cp "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
