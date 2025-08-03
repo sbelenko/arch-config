@@ -32,17 +32,16 @@ sudo systemctl enable sddm # Enable sddm
 # -------- Locale --------
 # Find and uncomment the line for ru_UA.UTF-8 in /etc/locale.gen
 sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen
+sed -i 's/#ru_UA.UTF-8/ru_UA.UTF-8/' /etc/locale.gen
 
 # Generate the locales
 sudo locale-gen
 # -------- End Locale --------
 
-# -------- Display a message before the Hyprland setup --------
-echo "Starting Hyprland setup..."
-# Remove base config and copy my
+# -------- Hyprland setup --------
 rm -r "$HOME/.config/hypr/"
 cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
 
-# wallpapers
+# Hyprpaper
 cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
 sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
