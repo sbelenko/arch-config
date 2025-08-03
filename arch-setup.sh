@@ -42,3 +42,7 @@ echo "Starting Hyprland setup..."
 # Remove base config and copy my
 rm -r -f "$HOME/.config/hypr/"
 cp "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
+
+# wallpapers
+cp "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
+sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
