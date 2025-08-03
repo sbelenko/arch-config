@@ -44,5 +44,5 @@ rm -r "$HOME/.config/hypr/"
 cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
 
 # wallpapers
-cp "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
+cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
 sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
