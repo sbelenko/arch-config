@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Current script directory
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # List of packages
 packages=(
   nano # Console text editor
@@ -36,14 +39,6 @@ sudo locale-gen
 
 # -------- Display a message before the Hyprland setup --------
 echo "Starting Hyprland setup..."
-CONFIG_FILE="$HOME/.config/hypr/hyprland.conf"
-
-# Current script directory
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-# Path to config file
-SOURCE_FILE="$SCRIPT_DIR/hypr/hyprland.conf"
-
 # Remove base config and copy my
-rm -f "$CONFIG_FILE"
-cp "$SOURCE_FILE" "$CONFIG_FILE"
+rm -r -f "$HOME/.config/hypr/"
+cp "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
