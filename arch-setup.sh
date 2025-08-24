@@ -46,3 +46,7 @@ cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/"
 # Hyprpaper
 cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/"
 sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
+
+# -------- Waybar setup --------
+rm -r "$HOME/.config/waybar/"
+cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
