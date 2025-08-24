@@ -1,5 +1,3 @@
-@define-color background rgba(255, 255, 255, 0.1);
-
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Fira Code;
@@ -42,7 +40,7 @@ tooltip label{
 
 /* workspaces */
 #workspaces {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 0;
     border-radius: 5px;
 }
@@ -63,13 +61,13 @@ tooltip label{
 
 /* window */
 #window {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
 }
 
 /* language */
 #language {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px 0px 0px 5px;
 }
 
@@ -77,30 +75,30 @@ tooltip label{
 
 /* bluetooth */
 #bluetooth {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* idle_inhibitor */
 #idle_inhibitor {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* pulseaudio */
 #pulseaudio {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* network */
 #network {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* clock */
 #clock {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #custom-powermenu {
-    background-color: @background;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 0 5px 5px 0;
 }
