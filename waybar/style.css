@@ -1,12 +1,12 @@
-@define-color background rgba(255, 255, 255, 0.08);
+@define-color background rgba(255, 255, 255, 0.1);
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Fira Mono;
-    font-size: 14px;
-    margin: 0 2px;
-    padding: 0 5px;
-    color: #93B1A6;
+    font-family: Fira Code;
+    font-weight: bold;
+    font-size: 12px;
+    color: #e8eaed;
+    border-radius: 0;
 }
 
 /* tooltip {
@@ -22,12 +22,38 @@ tooltip label{
 
 /* waybar */
 #waybar {
-    background-color: #0d1117;
+    background-color: rgba(51, 51, 51, 0.8);
+    /* border-bottom: 2px solid rgb(117, 117, 117); */
+    border-radius: 0 0 15px 15px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 8px;
+    background: none;
+}
+
+.modules-left *,
+.modules-center *,
+.modules-right * {
+    padding: 0 10px;
 }
 
 /* workspaces */
 #workspaces {
-    background-color: red;
+    background-color: @background;
+    padding: 0;
+    border-radius: 5px;
+}
+
+#workspaces button {
+    padding: 0;
+    border: 0;
+}
+
+#workspaces button:hover {
+    background-color: blue;
 }
 
 /* tray */
@@ -38,11 +64,13 @@ tooltip label{
 /* window */
 #window {
     background-color: @background;
+    border-radius: 5px;
 }
 
 /* language */
 #language {
     background-color: @background;
+    border-radius: 5px 0px 0px 5px;
 }
 
 /* mpd */
@@ -70,4 +98,9 @@ tooltip label{
 /* clock */
 #clock {
     background-color: @background;
+}
+
+#custom-powermenu {
+    background-color: @background;
+    border-radius: 0 5px 5px 0;
 }

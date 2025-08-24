@@ -11,13 +11,12 @@
   "gtk-layer-shell": true, //// HZ
   "modules-left": [
     "custom/apps",
-    "hyprland/workspaces",
     "hyprland/submap",
     "tray",
     "mpris"
   ],
   "modules-center": [
-    "hyprland/window"
+    "hyprland/workspaces"
   ],
   "modules-right": [
     "hyprland/language",
@@ -32,8 +31,9 @@
     "custom/powermenu"
   ],
   "custom/apps": {
-    "format": "󰍜 Apps",
-    "on-click": "wofi --show drun"
+    "format": " Apps",
+    "on-click": "pidof wofi && killall wofi || wofi --show drun",
+    "tooltip": false
   },
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -60,9 +60,19 @@
     "format-en": "US",
     "format-ru": "KH"
   },
+  "bluetooth": {
+    "format": " ",
+    "format-disabled": "󰂳",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
+  },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": " ",
+    "format-wifi": "󰤨",
     "format-ethernet": "",
     "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal: <b>{signalStrength}%</b>\nFrequncy: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}/{cidr}</b>\nNetmask: <b>{netmask}/{cidr}</b>",
     "format-linked": "{ifname} (No IP) ",
@@ -197,7 +207,7 @@
     "on-click": "pavucontrol"
   },
   "custom/power": {
-    "format": "⏻ ",
+    "format": "⏻",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
