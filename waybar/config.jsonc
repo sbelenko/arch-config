@@ -19,6 +19,7 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "custom/notifications",
     "hyprland/language",
     "bluetooth",
     "mpd",
@@ -27,7 +28,6 @@
     "network",
     // "battery",
     "clock",
-    "custom/notifications",
     "custom/powermenu"
   ],
   "custom/apps": {
