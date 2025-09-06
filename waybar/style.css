@@ -20,7 +20,7 @@ tooltip label{
 
 /* waybar */
 #waybar {
-    background-color: rgba(51, 51, 51, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     /* border-bottom: 2px solid rgb(117, 117, 117); */
     border-radius: 0;
 }
@@ -40,6 +40,7 @@ tooltip label{
 
 /* workspaces */
 #workspaces {
+    margin: 0;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 0;
     border-radius: 5px;
