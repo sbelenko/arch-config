@@ -19,6 +19,7 @@ packages=(
   wofi # Application launcher
   mako # Notification daemon
   git # Version control system
+  bluez bluez-utils blueman #bluetooth
 )
 
 # Update the system
@@ -50,3 +51,6 @@ sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
 # -------- Waybar setup --------
 rm -r "$HOME/.config/waybar/"
 cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
+
+# -------- Enable bluetooth service --------
+sudo systemctl enable --now bluetooth.service
