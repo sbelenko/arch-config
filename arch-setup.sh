@@ -19,7 +19,8 @@ packages=(
   wofi # Application launcher
   mako # Notification daemon
   git # Version control system
-  bluez bluez-utils blueman #bluetooth
+  bluez bluez-utils blueman # Bluetooth
+  vulkan-intel # Video driver
 )
 
 # Update the system
