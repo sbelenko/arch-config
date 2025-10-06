@@ -39,6 +39,8 @@ packages=(
   # --- Fonts ---
   noto-fonts # Base fonts for wide language support
   noto-fonts-emoji # Emoji support
+  inter-font
+  otf-geist-mono-nerd
 
   # --- Appearance ---
   nwg-look # GTK theme switcher
