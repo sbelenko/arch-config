@@ -1,20 +1,22 @@
 {
   "cSpell.words": [
     "blueman",
-    "bluez",
     "drun",
     "hypr",
     "hypridle",
     "Hyprland",
     "hyprlock",
     "hyprpaper",
+    "hyprpolkitagent",
     "Killactive",
     "killall",
     "noconfirm",
+    "noto",
     "pacman",
+    "pavucontrol",
     "rgba",
+    "rofi",
     "sandboxed",
-    "waybar",
-    "wofi"
+    "waybar"
   ]
 }

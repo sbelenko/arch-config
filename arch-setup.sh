@@ -5,22 +5,46 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # List of packages
 packages=(
+  # --- System & Utilities ---
   nano # Console text editor
-  kitty # Terminal
+  flatpak # Package manager for sandboxed apps
+  unzip # Archive tools
+
+  # --- Hyprland & Wayland Core ---
   hyprland # Tiling Wayland compositor
   hyprpaper # Wallpaper utility
   hypridle # Idle screen manager
   hyprlock # Screen locker
+  hyprpolkitagent # It is required for GUI applications to be able to request elevated privileges
   xdg-desktop-portal-hyprland # XDG portal for Wayland apps
-  sddm # Display manager
-  flatpak # Package manager for sandboxed apps
   waybar # Wayland status bar
-  nautilus # File manager
-  wofi # Application launcher
   mako # Notification daemon
-  git # Version control system
-  bluez bluez-utils blueman # Bluetooth
-  vulkan-intel # Video driver
+  slurp grim # Screenshot tools
+  rofi # Application launcher
+
+  # --- Terminal & File Manager ---
+  kitty # Terminal
+  nautilus # File manager
+
+  # --- Audio (completing the base install) ---
+  pavucontrol     # GUI mixer for audio
+
+  # --- Bluetooth ---
+  blueman # GUI
+
+  # --- Drivers ---
+  vulkan-intel
+  intel-media-driver
+
+  # --- Fonts ---
+  noto-fonts # Base fonts for wide language support
+  noto-fonts-emoji # Emoji support
+
+  # --- Appearance ---
+  nwg-look # GTK theme switcher
+
+  # --- Display Manager ---
+  sddm # Display manager
 )
 
 # Update the system
@@ -30,7 +54,7 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S "${packages[@]}" --noconfirm
 
 # Enable the display manager to start on boot
-sudo systemctl enable sddm # Enable sddm
+sudo systemctl enable sddm
 
 # -------- Locale --------
 # Find and uncomment the line for ru_UA.UTF-8 in /etc/locale.gen
@@ -52,6 +76,3 @@ sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
 # -------- Waybar setup --------
 rm -r "$HOME/.config/waybar/"
 cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
-
-# -------- Enable bluetooth service --------
-sudo systemctl enable --now bluetooth.service
