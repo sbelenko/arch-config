@@ -81,6 +81,11 @@ sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
 rm -r "$HOME/.config/waybar/"
 cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
 
+# -------- Applications --------
+flatpak install flathub com.google.Chrome
+flatpak install flathub com.visualstudio.code
+flatpak install flathub com.slack.Slack
+
 # -------- Fonts setup --------
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Geist Mono Nerd Font 11'
