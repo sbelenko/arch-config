@@ -58,7 +58,7 @@ packages=(
 sudo pacman -Syu --noconfirm
 
 # Install the packages
-sudo pacman -S "${packages[@]}" --noconfirm
+sudo pacman -S "${packages[@]}" --noconfirm --needed
 
 # Enable the display manager to start on boot
 sudo systemctl enable sddm
