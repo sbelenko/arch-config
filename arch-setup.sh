@@ -9,6 +9,8 @@ packages=(
   nano # Console text editor
   flatpak # Package manager for sandboxed apps
   unzip # Archive tools
+  loupe # A simple image viewer for GNOME
+  evince # Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
 
   # --- Hyprland & Wayland Core ---
   hyprland # Tiling Wayland compositor
@@ -27,7 +29,7 @@ packages=(
   nautilus # File manager
 
   # --- Audio (completing the base install) ---
-  pavucontrol     # GUI mixer for audio
+  pavucontrol # PulseAudio Volume Control GUI
 
   # --- Bluetooth ---
   blueman # GUI
@@ -78,3 +80,7 @@ sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf
 # -------- Waybar setup --------
 rm -r "$HOME/.config/waybar/"
 cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
+
+# -------- Fonts setup --------
+gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Geist Mono Nerd Font 11'
