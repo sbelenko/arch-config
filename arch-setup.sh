@@ -49,6 +49,9 @@ packages=(
 
   # --- Display Manager ---
   sddm # Display manager
+
+  # --- Code editor ---
+  zed
 )
 
 # Update the system
@@ -63,7 +66,6 @@ sudo systemctl enable sddm
 # -------- Locale --------
 # Find and uncomment the line for ru_UA.UTF-8 in /etc/locale.gen
 sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen
-sed -i 's/#ru_UA.UTF-8/ru_UA.UTF-8/' /etc/locale.gen
 
 # Generate the locales
 sudo locale-gen
@@ -82,9 +84,9 @@ rm -r "$HOME/.config/waybar/"
 cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/"
 
 # -------- Applications --------
-flatpak install flathub com.google.Chrome
-flatpak install flathub com.visualstudio.code
-flatpak install flathub com.slack.Slack
+flatpak install -y flathub com.google.Chrome
+flatpak install -y flathub com.visualstudio.code
+flatpak install -y flathub com.slack.Slack
 
 # -------- Fonts setup --------
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
