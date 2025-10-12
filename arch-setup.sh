@@ -35,6 +35,7 @@ packages=(
   blueman # GUI
 
   # --- Drivers ---
+  mesa
   vulkan-intel
   intel-media-driver
 
