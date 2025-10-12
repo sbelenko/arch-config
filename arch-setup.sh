@@ -91,3 +91,6 @@ flatpak install -y flathub com.slack.Slack
 # -------- Fonts setup --------
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Geist Mono Nerd Font 11'
+
+# -------- Create default directories --------
+LC_ALL=C xdg-user-dirs-update --force
