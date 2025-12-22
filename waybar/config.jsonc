@@ -1,107 +1,61 @@
-// -*- mode: jsonc -*-
+// https://github.com/Alexays/Waybar/wiki/Configuration
 {
-  // "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "layer": "bottom",
+  "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  //"spacing": 4, // Gaps between modules (4px)
-  // Choose the order of the modules
-  // "margin-bottom": 20,
-  "reload_style_on_change": true,
-  "gtk-layer-shell": true, //// HZ
-  "modules-left": [
-    "custom/apps",
-    "hyprland/submap",
-    "tray",
-    "mpris"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
+  "spacing": 5, // Gaps between modules
+  "margin-top": 3,
+  "margin-left": 3,
+  "margin-right": 3,
+  "margin-bottom": 2,
+  "reload_style_on_change": true, //
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "custom/notifications",
     "hyprland/language",
     "bluetooth",
-    "mpd",
-    "idle_inhibitor",
     "pulseaudio",
     "network",
     // "battery",
     "clock",
-    "custom/powermenu"
+    "custom/powermenu",
   ],
+  // Modules (Left)
   "custom/apps": {
-    "format": " Apps",
-    "on-click": "pidof wofi && killall wofi || wofi --show drun",
-    "tooltip": false
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": ""
-    }
+    "format": "󰣇",
+    "on-click": "pidof rofi && killall rofi || rofi -show drun",
+    "tooltip": false,
   },
   "mpris": {
     "format": "{player_icon}",
-    "format-paused": "<span color='grey'>{status_icon}</span>",
-    "max-length": 50,
+    "format-paused": "{status_icon}",
     "player-icons": {
-      "default": "⏸",
-      "mpv": "🎵"
+      "default": "󰏤",
+      "mpv": "󰈫",
     },
     "status-icons": {
-      "paused": "▶"
-    }
-    // "ignored-players": ["firefox"]
-  },
-  "hyprland/language": {
-    "format": "{}",
-    "format-en": "US",
-    "format-ru": "KH"
-  },
-  "bluetooth": {
-    "format": " ",
-    "format-disabled": "󰂳",
-    "format-connected": "󰂱 {num_connections}",
-    "tooltip-format": " {device_alias}",
-    "tooltip-format-connected": "{device_enumerate}",
-    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
-    "tooltip": true,
-    "on-click": "blueman-manager",
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "󰤨",
-    "format-ethernet": "",
-    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal: <b>{signalStrength}%</b>\nFrequncy: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}/{cidr}</b>\nNetmask: <b>{netmask}/{cidr}</b>",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "clock": {
-    // "timezone": "America/New_York",
-    "format": "{:%a %d / %I:%M %p}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 4,
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "weekdays": "<span color='#ffcc88'><b>{}</b></span>",
-        "today": "<span color='#ff8888'><b>{}</b></span>"
-      }
+      "paused": "󰐊",
     },
-    "actions": {
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
+    "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 10,
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  // Modules (Center)
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "○",
+      "active": "●",
     },
-    "cursor": false // or "format-alt": "{:%d-%m-%Y}"
   },
-  "custom/powermenu": {
-    "format" : "",
-    "on-click": "wlogout"
-  },
+  // Modules (Right)
   "custom/notifications": {
     "format": "{icon}",
     "format-icons": {
@@ -112,76 +66,29 @@
       "inhibited-notification": "󰅸",
       "inhibited-none": "󰂜",
       "dnd-inhibited-notification": "󰅸",
-      "dnd-inhibited-none": "󱏨"
+      "dnd-inhibited-none": "󱏨",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click-right": "swaync-client -d -sw",
     "on-click": "swaync-client -t -sw",
-    "escape": true
+    "escape": true,
   },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
+  "hyprland/language": {
+    "format": "󰗊 {}",
+    "format-en": "US",
+    "format-ru": "KH",
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
-  },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -198,13 +105,40 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal: <b>{signalStrength}%</b>\nFrequncy: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}/{cidr}</b>\nNetmask: <b>{netmask}/{cidr}</b>",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮",
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "format": "{:%a %d / %I:%M %p}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 4,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc88'><b>{}</b></span>",
+        "today": "<span color='#ff8888'><b>{}</b></span>",
+      },
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+    "cursor": false, // or "format-alt": "{:%d-%m-%Y}"
+  },
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "wlogout",
   },
   "custom/power": {
     "format": "⏻",
@@ -215,7 +149,7 @@
       "shutdown": "shutdown",
       "reboot": "reboot",
       "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate"
-    }
-  }
+      "hibernate": "systemctl hibernate",
+    },
+  },
 }

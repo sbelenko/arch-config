@@ -1,105 +1,53 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Geist Mono Nerd Font";
+    /*all: unset;*/
+    font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
     font-size: 12px;
     color: #e8eaed;
-    border-radius: 0;
 }
-
-/* tooltip {
-  background: blue;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: green;
+/* Waybar */
+window#waybar {
+    background-color: transparent;
 }
-tooltip label{
-  color: red;
-} */
-
-/* waybar */
-#waybar {
+window#waybar > box {
     background-color: rgba(0, 0, 0, 0.5);
-    /* border-bottom: 2px solid rgb(117, 117, 117); */
-    border-radius: 0;
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 5px;
+    margin: 2px;
 }
-
+/* Modules */
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 8px;
-    background: none;
+    margin: 5px;
 }
-
-.modules-left *,
-.modules-center *,
-.modules-right * {
+.module {
+    padding: 0 8px;
+}
+.modules-left .module {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
     padding: 0 10px;
 }
-
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
 /* workspaces */
 #workspaces {
-    margin: 0;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 0;
     border-radius: 5px;
 }
-
 #workspaces button {
-    padding: 0;
-    border: 0;
+    padding: 0 8px;
 }
-
 #workspaces button:hover {
-    background-color: blue;
-}
-
-/* tray */
-#tray {
-    background-color: teal;
-}
-
-/* window */
-#window {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
 }
-
-/* language */
-#language {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px 0px 0px 5px;
-}
-
-/* mpd */
-
-/* bluetooth */
-#bluetooth {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* idle_inhibitor */
-#idle_inhibitor {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* pulseaudio */
-#pulseaudio {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* network */
-#network {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* clock */
-#clock {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-#custom-powermenu {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0 5px 5px 0;
+/* tray bg */
+#tray {
+    background-color: rgba(255, 255, 255, 0.2);
 }

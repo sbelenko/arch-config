@@ -35,7 +35,6 @@ packages=(
   blueman # GUI
 
   # --- Drivers ---
-  mesa
   vulkan-intel
   intel-media-driver
 
@@ -93,5 +92,5 @@ flatpak install -y flathub com.slack.Slack
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Geist Mono Nerd Font 11'
 
-# -------- Create default directories --------
+# -------- Create default dirs --------
 LC_ALL=C xdg-user-dirs-update --force
