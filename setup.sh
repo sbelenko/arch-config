@@ -42,6 +42,7 @@ packages=(
   nano                  # Console text editor
   unzip                 # Archive tools (Extract)
   zip                   # Archive tools (Create)
+  xdg-user-dirs         # REQUIRED: To generate standard folders
   flatpak               # Package manager for sandboxed apps
 
   # --- Drivers (Intel GPU) ---
