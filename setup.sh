@@ -46,7 +46,6 @@ packages=(
   # --- Drivers (Intel GPU) ---
   vulkan-intel          # Vulkan
   intel-media-driver    # VA-API (Video Acceleration)
-  mesa
 
   # --- Hyprland Ecosystem ---
   hyprland
