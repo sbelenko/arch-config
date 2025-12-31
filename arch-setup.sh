@@ -22,7 +22,7 @@ packages=(
   waybar # Wayland status bar
   mako # Notification daemon
   slurp grim # Screenshot tools
-  rofi # Application launcher
+  hyprlauncher # Application launcher
 
   # --- Terminal & File Manager ---
   kitty # Terminal
