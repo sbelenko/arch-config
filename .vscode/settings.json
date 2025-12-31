@@ -2,6 +2,8 @@
   "cSpell.words": [
     "blueman",
     "drun",
+    "flathub",
+    "gsettings",
     "hypr",
     "hypridle",
     "Hyprland",
@@ -10,6 +12,8 @@
     "hyprpolkitagent",
     "Killactive",
     "killall",
+    "loglevel",
+    "MKINITCPIO",
     "noconfirm",
     "noto",
     "pacman",
@@ -17,6 +21,8 @@
     "rgba",
     "rofi",
     "sandboxed",
-    "waybar"
+    "waybar",
+    "ZRAM",
+    "zstd"
   ]
 }
