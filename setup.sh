@@ -6,13 +6,35 @@
 # Environment: Hyprland (Wayland)
 # ==========================================
 
-# Stop script execution on any error
+# Colors
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Stop script execution on critical errors
 set -e
+
+# Error handling function
+handle_warning() {
+    echo -e "${YELLOW}[WARNING] $1${NC}"
+}
+
+# --- SMART CHECKS ---
+# 1. Check Internet
+if ! ping -c 1 8.8.8.8 &> /dev/null; then
+    echo -e "${RED}[ERROR] No internet connection.${NC}"
+    exit 1
+fi
+
+# 2. Keep Sudo Alive (background loop)
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Get the directory where this script is located
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-echo "=== [1/7] Preparing Package List ==="
+echo -e "${GREEN}=== [1/7] Preparing Package List ===${NC}"
 
 packages=(
   # --- System Core & Drivers (Critical for N150) ---
@@ -63,70 +85,85 @@ packages=(
   ttf-jetbrains-mono-nerd # Nerd Font (Standard Repo)
 )
 
-echo "=== [2/7] Installing Packages ==="
+echo -e "${GREEN}=== [2/7] Installing Packages ===${NC}"
 # Update databases and install
-sudo pacman -Syu --noconfirm
-sudo pacman -S "${packages[@]}" --noconfirm --needed
+if ! sudo pacman -Syu --noconfirm; then
+    echo -e "${RED}System update failed.${NC}"
+    exit 1
+fi
+
+if ! sudo pacman -S "${packages[@]}" --noconfirm --needed; then
+    echo -e "${RED}Package installation failed.${NC}"
+    exit 1
+fi
 
 # Enable services
 echo "-> Enabling system services..."
-sudo systemctl enable sddm
+sudo systemctl enable sddm || handle_warning "Failed to enable sddm"
 
-echo "=== [3/7] Applying Configuration (Dotfiles) ==="
+echo -e "${GREEN}=== [3/7] Applying Configuration (Dotfiles) ===${NC}"
 
 # Hyprland
 echo "-> Configuring Hyprland..."
 rm -rf "$HOME/.config/hypr/"
-cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/" 2>/dev/null || echo "WARNING: hypr folder missing"
+cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/" 2>/dev/null || handle_warning "hypr folder missing"
 
 # Wallpapers
 echo "-> Configuring Wallpapers..."
-cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/" 2>/dev/null || echo "WARNING: wallpapers folder missing"
+cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/" 2>/dev/null || handle_warning "wallpapers folder missing"
 # Inject username
-sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf 2>/dev/null || true
+sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf 2>/dev/null || handle_warning "Failed to inject username"
 
 # Waybar
 echo "-> Configuring Waybar..."
 rm -rf "$HOME/.config/waybar/"
-cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/" 2>/dev/null || echo "WARNING: waybar folder missing"
+cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/" 2>/dev/null || handle_warning "waybar folder missing"
 
 # Locale (ru_UA)
 echo "-> Setting Locale..."
-sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen
-sudo locale-gen
+sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen || handle_warning "Failed to edit locale.gen"
+sudo locale-gen || handle_warning "Failed to generate locale"
 
 # Fonts & GTK
 echo "-> Setting Fonts..."
-gsettings set org.gnome.desktop.interface font-name 'Inter 11'
-gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11'
+gsettings set org.gnome.desktop.interface font-name 'Inter 11' || handle_warning "Failed to set font"
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11' || handle_warning "Failed to set monospace"
+fc-cache -f >/dev/null 2>&1 || true
 
 # User Dirs
-LC_ALL=C xdg-user-dirs-update --force
+LC_ALL=C xdg-user-dirs-update --force || handle_warning "Failed to update user dirs"
 
-echo "=== [4/7] Installing Flatpak Apps ==="
-flatpak install -y flathub com.google.Chrome
-flatpak install -y flathub com.visualstudio.code
-flatpak install -y flathub com.slack.Slack
+echo -e "${GREEN}=== [4/7] Installing Flatpak Apps ===${NC}"
+# Smart fix: Add repo first
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo || handle_warning "Failed to add flathub repo"
 
-echo "=== [5/7] Configuring Perfect Boot (Plymouth & Early KMS) ==="
+flatpak install -y flathub com.google.Chrome || handle_warning "Failed to install Chrome"
+flatpak install -y flathub com.visualstudio.code || handle_warning "Failed to install VS Code"
+flatpak install -y flathub com.slack.Slack || handle_warning "Failed to install Slack"
+
+echo -e "${GREEN}=== [5/7] Configuring Perfect Boot (Plymouth & Early KMS) ===${NC}"
 MKINITCPIO_CONF="/etc/mkinitcpio.conf"
 
-# 1. Add i915 module (Intel Early KMS) - Critical for Plymouth
-if ! grep -q "i915" "$MKINITCPIO_CONF"; then
-    echo "-> Adding i915 to MODULES..."
-    sudo sed -i 's/MODULES=(/MODULES=(i915 /' "$MKINITCPIO_CONF"
-fi
+if [ -f "$MKINITCPIO_CONF" ]; then
+    # 1. Add i915 module (Intel Early KMS) - Critical for Plymouth
+    if ! grep -q "i915" "$MKINITCPIO_CONF"; then
+        echo "-> Adding i915 to MODULES..."
+        sudo sed -i 's/MODULES=(/MODULES=(i915 /' "$MKINITCPIO_CONF" || handle_warning "Failed to add i915"
+    fi
 
-# 2. Add plymouth hook
-if ! grep -q "plymouth" "$MKINITCPIO_CONF"; then
-    echo "-> Adding plymouth to HOOKS..."
-    sudo sed -i 's/\budev\b/udev plymouth/g' "$MKINITCPIO_CONF"
-fi
+    # 2. Add plymouth hook
+    if ! grep -q "plymouth" "$MKINITCPIO_CONF"; then
+        echo "-> Adding plymouth to HOOKS..."
+        sudo sed -i 's/\budev\b/udev plymouth/g' "$MKINITCPIO_CONF" || handle_warning "Failed to add plymouth hook"
+    fi
 
-# 3. Apply Theme & Rebuild Initramfs
-echo "-> Building initramfs with spinner theme..."
-# This runs mkinitcpio -P automatically
-sudo plymouth-set-default-theme -R spinner
+    # 3. Apply Theme & Rebuild Initramfs
+    echo "-> Building initramfs with spinner theme..."
+    # This runs mkinitcpio -P automatically
+    sudo plymouth-set-default-theme -R spinner || handle_warning "Failed to build initramfs"
+else
+    handle_warning "$MKINITCPIO_CONF not found"
+fi
 
 # 4. Silent Boot Params
 ENTRIES_DIR="/boot/loader/entries"
@@ -137,33 +174,38 @@ if [ -d "$ENTRIES_DIR" ]; then
         [ -f "$file" ] || continue
         if ! grep -q "splash" "$file"; then
             echo "-> Updating bootloader: $file"
-            sudo sed -i "/^options/ s/$/ $BOOT_PARAMS/" "$file"
+            sudo sed -i "/^options/ s/$/ $BOOT_PARAMS/" "$file" || handle_warning "Failed to update $file"
         fi
     done
 else
-    echo "WARNING: Bootloader config not found (checked $ENTRIES_DIR)"
+    handle_warning "Bootloader config not found (checked $ENTRIES_DIR)"
 fi
 
-echo "=== [6/7] Network Configuration (Optional) ==="
+echo -e "${GREEN}=== [6/7] Network Configuration (Optional) ===${NC}"
 read -p "Switch NetworkManager backend to iwd (Recommended)? (y/N): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then
-    sudo pacman -S --noconfirm --needed iwd
-    printf "[device]\nwifi.backend=iwd\n" | sudo tee /etc/NetworkManager/conf.d/iwd.conf > /dev/null
-    sudo systemctl restart NetworkManager
-    sudo systemctl stop wpa_supplicant 2>/dev/null || true
-    sudo systemctl disable wpa_supplicant 2>/dev/null || true
-    echo "-> NetworkManager switched to iwd."
+    sudo pacman -S --noconfirm --needed iwd || handle_warning "Failed to install iwd"
+
+    if [ -d "/etc/NetworkManager/conf.d" ]; then
+        printf "[device]\nwifi.backend=iwd\n" | sudo tee /etc/NetworkManager/conf.d/iwd.conf > /dev/null
+        sudo systemctl restart NetworkManager || handle_warning "Failed to restart NetworkManager"
+        sudo systemctl stop wpa_supplicant 2>/dev/null || true
+        sudo systemctl disable wpa_supplicant 2>/dev/null || true
+        echo "-> NetworkManager switched to iwd."
+    else
+        handle_warning "NetworkManager conf dir not found"
+    fi
 fi
 
-echo "=== [7/7] ZRAM Configuration (Memory Optimization) ==="
+echo -e "${GREEN}=== [7/7] ZRAM Configuration (Memory Optimization) ===${NC}"
 read -p "Enable ZRAM (ram / 2)? (y/N): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then
-    sudo pacman -S --noconfirm --needed zram-generator
+    sudo pacman -S --noconfirm --needed zram-generator || handle_warning "Failed to install zram-generator"
     ZRAM_CONF="/etc/systemd/zram-generator.conf"
 
     # Check if config file exists
     if [ ! -f "$ZRAM_CONF" ]; then
-        echo "WARNING: $ZRAM_CONF not found! Skipping ZRAM setup."
+        handle_warning "$ZRAM_CONF not found! Skipping ZRAM setup."
         echo "Please ensure the zram-generator package created the default config."
     else
         # File exists, proceed with configuration
@@ -173,21 +215,21 @@ if [[ "$answer" =~ ^[Yy] ]]; then
             # If [zram0] exists, append parameters after it
             if grep -q "\[zram0\]" "$ZRAM_CONF"; then
                 echo "-> Appending settings to existing [zram0] section..."
-                sudo sed -i '/^\[zram0\]/a zram-size = ram / 2\ncompression-algorithm = zstd' "$ZRAM_CONF"
+                sudo sed -i '/^\[zram0\]/a zram-size = ram / 2\ncompression-algorithm = zstd' "$ZRAM_CONF" || handle_warning "Failed to edit config"
             else
                 # If file exists but no [zram0] section, append it
                 echo "-> Appending [zram0] section..."
-                printf "\n[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\n" | sudo tee -a "$ZRAM_CONF" > /dev/null
+                printf "\n[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\n" | sudo tee -a "$ZRAM_CONF" > /dev/null || handle_warning "Failed to write config"
             fi
 
             # Reload and start
             sudo systemctl daemon-reload
-            sudo systemctl start systemd-zram-setup@zram0.service 2>/dev/null || true
+            sudo systemctl start systemd-zram-setup@zram0.service 2>/dev/null || handle_warning "Failed to start ZRAM"
             echo "-> ZRAM enabled."
         fi
     fi
 fi
 
 echo ""
-echo "=== INSTALLATION COMPLETE ==="
+echo -e "${GREEN}=== INSTALLATION COMPLETE ===${NC}"
 echo "Please reboot your system."
