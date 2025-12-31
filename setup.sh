@@ -55,6 +55,8 @@ packages=(
   hyprpolkitagent       # Auth agent (GUI sudo)
   hyprlauncher          # Launcher (Native Hyprland tool)
   xdg-desktop-portal-hyprland
+  qt5-wayland           # Qt5 Wayland support (Crucial for UI consistency)
+  qt6-wayland           # Qt6 Wayland support
 
   # --- UI Components ---
   waybar                # Status bar
