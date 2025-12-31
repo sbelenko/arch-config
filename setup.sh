@@ -40,7 +40,8 @@ packages=(
   # --- System Core & Drivers (Critical for N150) ---
   linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
   nano                  # Console text editor
-  unzip                 # Archive tools
+  unzip                 # Archive tools (Extract)
+  zip                   # Archive tools (Create)
   flatpak               # Package manager for sandboxed apps
 
   # --- Drivers (Intel GPU) ---
