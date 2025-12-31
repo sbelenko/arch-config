@@ -74,8 +74,8 @@ packages=(
   zed                   # Code editor
 
   # --- Audio & Bluetooth ---
-  pavucontrol
-  blueman
+  pavucontrol           # GUI Volume mixer
+  blueman               # GUI Bluetooth manager
 
   # --- Fonts ---
   noto-fonts
