@@ -161,15 +161,30 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     sudo pacman -S --noconfirm --needed zram-generator
     ZRAM_CONF="/etc/systemd/zram-generator.conf"
 
-    if [ ! -f "$ZRAM_CONF" ] || ! grep -q "zram-size" "$ZRAM_CONF"; then
-        sudo tee "$ZRAM_CONF" > /dev/null <<EOF
-[zram0]
-zram-size = ram / 2
-compression-algorithm = zstd
-EOF
-        sudo systemctl daemon-reload
-        sudo systemctl start systemd-zram-setup@zram0.service 2>/dev/null || true
-        echo "-> ZRAM enabled."
+    # Check if config file exists
+    if [ ! -f "$ZRAM_CONF" ]; then
+        echo "WARNING: $ZRAM_CONF not found! Skipping ZRAM setup."
+        echo "Please ensure the zram-generator package created the default config."
+    else
+        # File exists, proceed with configuration
+        if grep -q "zram-size" "$ZRAM_CONF"; then
+            echo "-> ZRAM is already configured. Skipping."
+        else
+            # If [zram0] exists, append parameters after it
+            if grep -q "\[zram0\]" "$ZRAM_CONF"; then
+                echo "-> Appending settings to existing [zram0] section..."
+                sudo sed -i '/^\[zram0\]/a zram-size = ram / 2\ncompression-algorithm = zstd' "$ZRAM_CONF"
+            else
+                # If file exists but no [zram0] section, append it
+                echo "-> Appending [zram0] section..."
+                printf "\n[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\n" | sudo tee -a "$ZRAM_CONF" > /dev/null
+            fi
+
+            # Reload and start
+            sudo systemctl daemon-reload
+            sudo systemctl start systemd-zram-setup@zram0.service 2>/dev/null || true
+            echo "-> ZRAM enabled."
+        fi
     fi
 fi
 
