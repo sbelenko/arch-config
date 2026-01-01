@@ -39,6 +39,7 @@ echo -e "${GREEN}=== [1/7] Preparing Package List ===${NC}"
 packages=(
   # --- System Core & Drivers (Critical for N150) ---
   linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
+  intel-ucode           # REQUIRED: CPU Microcode (Stability & Errata Fixes)
   nano                  # Console text editor
   unzip                 # Archive tools (Extract)
   zip                   # Archive tools (Create)
