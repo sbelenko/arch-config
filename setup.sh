@@ -57,7 +57,6 @@ packages=(
   hypridle              # Idle daemon
   hyprlock              # Lock screen
   hyprpolkitagent       # Auth agent (GUI sudo)
-  rofi-wayland          # Launcher
 
   # --- Portals (Crucial for interaction) ---
   xdg-desktop-portal-hyprland # Screen sharing & Hyprland specifics
@@ -74,6 +73,7 @@ packages=(
   nwg-look               # GTK Theme manager
   plymouth               # Boot splash
   sddm                   # Login manager
+  rofi-wayland          # Launcher
 
   # --- Utilities ---
   slurp grim            # Screenshots
