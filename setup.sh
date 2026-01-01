@@ -57,7 +57,7 @@ packages=(
   hypridle              # Idle daemon
   hyprlock              # Lock screen
   hyprpolkitagent       # Auth agent (GUI sudo)
-  hyprlauncher          # Launcher (Native Hyprland tool)
+  rofi-wayland          # Launcher
 
   # --- Portals (Crucial for interaction) ---
   xdg-desktop-portal-hyprland # Screen sharing & Hyprland specifics
