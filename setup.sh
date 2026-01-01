@@ -2,7 +2,7 @@
 
 # ==========================================
 # Arch Linux Unified Installation Script
-# Target: Intel N100/N150 (Alder Lake-N)
+# Target: Intel N150 (Alder Lake-N)
 # Environment: Hyprland (Wayland)
 # ==========================================
 
