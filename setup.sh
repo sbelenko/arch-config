@@ -40,6 +40,7 @@ packages=(
   # --- System Core & Drivers (Critical for N150) ---
   linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
   intel-ucode           # REQUIRED: CPU Microcode (Stability & Errata Fixes)
+  thermald              # CRITICAL: Prevents throttling
   nano                  # Console text editor
   unzip                 # Archive tools (Extract)
   zip                   # Archive tools (Create)
@@ -67,11 +68,12 @@ packages=(
   qt6-wayland           # Qt6 Wayland support
 
   # --- UI Components ---
-  waybar                # Status bar
-  mako                  # Notifications
-  nwg-look              # GTK Theme manager
-  plymouth              # Boot splash
-  sddm                  # Login manager
+  waybar                 # Status bar
+  network-manager-applet # Wi-Fi tray icon for Waybar (Crucial for UX)
+  mako                   # Notifications
+  nwg-look               # GTK Theme manager
+  plymouth               # Boot splash
+  sddm                   # Login manager
 
   # --- Utilities ---
   slurp grim            # Screenshots
@@ -90,7 +92,7 @@ packages=(
   noto-fonts
   noto-fonts-emoji
   inter-font
-  ttf-jetbrains-mono-nerd # Nerd Font (Standard Repo)
+  ttf-jetbrains-mono-nerd
 )
 
 echo -e "${GREEN}=== [2/7] Installing Packages ===${NC}"
@@ -108,6 +110,9 @@ fi
 # Enable services
 echo "-> Enabling system services..."
 sudo systemctl enable sddm || handle_warning "Failed to enable sddm"
+
+# Enable Thermal Daemon for CPU performance
+sudo systemctl enable thermald || handle_warning "Failed to enable thermald"
 
 echo -e "${GREEN}=== [3/7] Applying Configuration (Dotfiles) ===${NC}"
 
