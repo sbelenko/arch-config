@@ -56,7 +56,12 @@ packages=(
   hyprlock              # Lock screen
   hyprpolkitagent       # Auth agent (GUI sudo)
   hyprlauncher          # Launcher (Native Hyprland tool)
-  xdg-desktop-portal-hyprland
+
+  # --- Portals (Crucial for interaction) ---
+  xdg-desktop-portal-hyprland # Screen sharing & Hyprland specifics
+  xdg-desktop-portal-gtk      # File picker dialogs & Dark theme sync
+
+  # --- Qt Support ---
   qt5-wayland           # Qt5 Wayland support (Crucial for UI consistency)
   qt6-wayland           # Qt6 Wayland support
 
