@@ -151,7 +151,6 @@ echo -e "${GREEN}=== [4/7] Installing Flatpak Apps ===${NC}"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo || handle_warning "Failed to add flathub repo"
 
 flatpak install -y flathub com.google.Chrome || handle_warning "Failed to install Chrome"
-flatpak install -y flathub com.visualstudio.code || handle_warning "Failed to install VS Code"
 flatpak install -y flathub com.slack.Slack || handle_warning "Failed to install Slack"
 
 echo -e "${GREEN}=== [5/7] Configuring Perfect Boot (Plymouth & Early KMS) ===${NC}"
