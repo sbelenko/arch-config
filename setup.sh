@@ -115,7 +115,7 @@ sudo systemctl enable sddm || handle_warning "Failed to enable sddm"
 sudo systemctl enable thermald || handle_warning "Failed to enable thermald"
 
 echo -e "${GREEN}=== [3/7] Applying Configuration (Dotfiles) ===${NC}"
-
+mkdir -p "$HOME/.config"
 # Hyprland
 echo "-> Configuring Hyprland..."
 rm -rf "$HOME/.config/hypr/"
