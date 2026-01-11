@@ -170,9 +170,22 @@ if [ -f "$MKINITCPIO_CONF" ]; then
     fi
 
     # 3. Apply Theme & Rebuild Initramfs
-    echo "-> Building initramfs with spinner theme..."
-    # This runs mkinitcpio -P automatically
-    sudo plymouth-set-default-theme -R spinner || handle_warning "Failed to build initramfs"
+    CUSTOM_THEME_NAME="arch-theme"
+    SOURCE_THEME="$SCRIPT_DIR/themes/plymouth/$CUSTOM_THEME_NAME"
+    DEST_THEME="/usr/share/plymouth/themes/$CUSTOM_THEME_NAME"
+
+    if [ -d "$SOURCE_THEME" ]; then
+        echo "-> Installing custom theme: $CUSTOM_THEME_NAME..."
+        sudo mkdir -p "$DEST_THEME"
+        sudo cp -r "$SOURCE_THEME/"* "$DEST_THEME/"
+
+        echo "-> Building initramfs with $CUSTOM_THEME_NAME..."
+        sudo plymouth-set-default-theme -R "$CUSTOM_THEME_NAME" || handle_warning "Failed to set custom theme"
+    else
+        handle_warning "Custom theme not found at $SOURCE_THEME"
+        echo "-> Falling back to standard spinner..."
+        sudo plymouth-set-default-theme -R spinner || handle_warning "Failed to build initramfs"
+    fi
 else
     handle_warning "$MKINITCPIO_CONF not found"
 fi
