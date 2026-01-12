@@ -69,7 +69,7 @@ packages=(
   # --- UI Components ---
   waybar                 # Status bar
   network-manager-applet # Wi-Fi tray icon for Waybar (Crucial for UX)
-  mako                   # Notifications
+  swaync                 # Notifications
   nwg-look               # GTK Theme manager
   plymouth               # Boot splash
   sddm                   # Login manager
