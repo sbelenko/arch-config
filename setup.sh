@@ -74,6 +74,7 @@ packages=(
   plymouth               # Boot splash
   sddm                   # Login manager
   rofi-wayland           # Launcher
+  wlogout                # Logout menu
 
   # --- Utilities ---
   slurp grim            # Screenshots
