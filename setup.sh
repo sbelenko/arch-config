@@ -73,7 +73,7 @@ packages=(
   nwg-look               # GTK Theme manager
   plymouth               # Boot splash
   sddm                   # Login manager
-  rofi-wayland          # Launcher
+  rofi-wayland           # Launcher
 
   # --- Utilities ---
   slurp grim            # Screenshots
