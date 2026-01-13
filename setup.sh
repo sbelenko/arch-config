@@ -32,21 +32,21 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 echo -e "${GREEN}=== [1] Preparing Package List ===${NC}"
-source "$SCRIPT_DIR/scripts/01-packages.sh"
+source "$SCRIPT_DIR/setup-scripts/01-packages.sh"
 
 echo -e "${GREEN}=== [2] Applying Configuration (Dotfiles) ===${NC}"
-source "$SCRIPT_DIR/scripts/02-dotfiles.sh"
+source "$SCRIPT_DIR/setup-scripts/02-dotfiles.sh"
 
 echo -e "${GREEN}=== [3] Installing Flatpak Apps ===${NC}"
-source "$SCRIPT_DIR/scripts/03-flatpak.sh"
+source "$SCRIPT_DIR/setup-scripts/03-flatpak.sh"
 
 
 echo -e "${GREEN}=== [4] Configuring Perfect Boot (Plymouth & Early KMS) ===${NC}"
-source "$SCRIPT_DIR/scripts/04-plymouth.sh"
+source "$SCRIPT_DIR/setup-scripts/04-plymouth.sh"
 
 
 echo -e "${GREEN}=== [5] Optimizations (ZRAM/Net) ===${NC}"
-source "$SCRIPT_DIR/scripts/05-optimize.sh"
+source "$SCRIPT_DIR/setup-scripts/05-optimize.sh"
 
 echo ""
 echo -e "${GREEN}=== INSTALLATION COMPLETE ===${NC}"
