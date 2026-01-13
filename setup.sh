@@ -238,7 +238,6 @@ if [[ "$answer" =~ ^[Yy] ]]; then
 
     else
         handle_warning "$ZRAM_CONF not found! Skipping ZRAM setup."
-        echo "Please ensure the zram-generator package created the default config."
     fi
 fi
 
