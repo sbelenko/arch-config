@@ -218,11 +218,18 @@ if [[ "$answer" =~ ^[Yy] ]]; then
 
     # Check if config file exists
     if [ -f "$ZRAM_CONF" ]; then
-        # File exists, proceed with configuration
+        # Ensure Header exists
         grep -q "^\[zram0\]" "$ZRAM_CONF" || echo "[zram0]" | sudo tee -a "$ZRAM_CONF" > /dev/null
+
+        # Configure Size (Update or Append)
         grep -q "zram-size" "$ZRAM_CONF" \
-        && sudo sed -i 's|^zram-size.*|zram-size = ram / 2|' "$ZRAM_CONF" \
-        || echo "zram-size = ram / 2" | sudo tee -a "$ZRAM_CONF" > /dev/null
+            && sudo sed -i 's|^zram-size.*|zram-size = ram / 2|' "$ZRAM_CONF" \
+            || echo "zram-size = ram / 2" | sudo tee -a "$ZRAM_CONF" > /dev/null
+
+        # Configure Algorithm (Update or Append) - CRITICAL for Performance
+        grep -q "compression-algorithm" "$ZRAM_CONF" \
+            && sudo sed -i 's|^compression-algorithm.*|compression-algorithm = zstd|' "$ZRAM_CONF" \
+            || echo "compression-algorithm = zstd" | sudo tee -a "$ZRAM_CONF" > /dev/null
 
         # Reload and restart service
         sudo systemctl daemon-reload
