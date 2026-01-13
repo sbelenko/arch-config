@@ -117,21 +117,9 @@ sudo systemctl enable thermald || handle_warning "Failed to enable thermald"
 
 echo -e "${GREEN}=== [3/7] Applying Configuration (Dotfiles) ===${NC}"
 mkdir -p "$HOME/.config"
-# Hyprland
-echo "-> Configuring Hyprland..."
-rm -rf "$HOME/.config/hypr/"
-cp -r "$SCRIPT_DIR/hypr/" "$HOME/.config/hypr/" 2>/dev/null || handle_warning "hypr folder missing"
 
-# Wallpapers
-echo "-> Configuring Wallpapers..."
-cp -r "$SCRIPT_DIR/wallpapers/" "$HOME/.config/wallpapers/" 2>/dev/null || handle_warning "wallpapers folder missing"
-# Inject username
-sed -i "s|-USERNAME-|$USER|g" ~/.config/hypr/hyprpaper.conf 2>/dev/null || handle_warning "Failed to inject username"
-
-# Waybar
-echo "-> Configuring Waybar..."
-rm -rf "$HOME/.config/waybar/"
-cp -r "$SCRIPT_DIR/waybar/" "$HOME/.config/waybar/" 2>/dev/null || handle_warning "waybar folder missing"
+echo "-> Copying configs from 'dots'..."
+cp -rf "$SCRIPT_DIR/dots/"* "$HOME/.config/" || handle_warning "Failed to copy config files"
 
 # Locale (ru_UA)
 echo "-> Setting Locale..."
