@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=Material light
+Description=A sleek and modern SDDM theme inspired by Material Design 3 principles.
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=material-3-theme
+Theme-API=2.0
+License=MIT
+QtVersion=6
