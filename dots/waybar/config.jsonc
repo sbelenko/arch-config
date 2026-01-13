@@ -138,7 +138,7 @@
   },
   "custom/powermenu": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "wlogout -l ~/.config/wlogout/layout_1 -C ~/.config/wlogout/style_1.css",
   },
   "custom/power": {
     "format": "⏻",
