@@ -40,10 +40,8 @@ source "$SCRIPT_DIR/setup-scripts/02-dotfiles.sh"
 echo -e "${GREEN}=== [3] Installing Flatpak Apps ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/03-flatpak.sh"
 
-
 echo -e "${GREEN}=== [4] Configuring Perfect Boot (Plymouth & Early KMS) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/04-plymouth.sh"
-
 
 echo -e "${GREEN}=== [5] Optimizations (ZRAM/Net) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/05-optimize.sh"
