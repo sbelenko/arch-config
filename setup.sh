@@ -46,6 +46,9 @@ source "$SCRIPT_DIR/setup-scripts/04-plymouth.sh"
 echo -e "${GREEN}=== [5] Optimizations (ZRAM/Net) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/05-optimize.sh"
 
+echo -e "${GREEN}=== [6] SDDM (Theme Setup) ===${NC}"
+source "$SCRIPT_DIR/setup-scripts/06-sddm-theme.sh"
+
 echo ""
 echo -e "${GREEN}=== INSTALLATION COMPLETE ===${NC}"
 echo "Please reboot your system."

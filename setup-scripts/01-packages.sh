@@ -27,6 +27,7 @@ packages=(
   # --- Qt Support ---
   qt5-wayland           # Qt5 Wayland support (Crucial for UI consistency)
   qt6-wayland           # Qt6 Wayland support
+  qt6-5compat           # Qt6 compatibility for Qt5 apps (sddm theme requires this)
 
   # --- UI Components ---
   waybar                 # Status bar
