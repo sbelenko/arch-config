@@ -214,7 +214,6 @@ fi
 echo -e "${GREEN}=== [7/7] ZRAM Configuration (Memory Optimization) ===${NC}"
 read -p "Enable ZRAM (ram / 2)? (y/N): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then
-    sudo pacman -S --noconfirm --needed zram-generator || handle_warning "Failed to install zram-generator"
     ZRAM_CONF="/etc/systemd/zram-generator.conf"
 
     # Check if config file exists
