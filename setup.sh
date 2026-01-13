@@ -217,29 +217,21 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     ZRAM_CONF="/etc/systemd/zram-generator.conf"
 
     # Check if config file exists
-    if [ ! -f "$ZRAM_CONF" ]; then
+    if [ -f "$ZRAM_CONF" ]; then
+        # File exists, proceed with configuration
+        grep -q "^\[zram0\]" "$ZRAM_CONF" || echo "[zram0]" | sudo tee -a "$ZRAM_CONF" > /dev/null
+        grep -q "zram-size" "$ZRAM_CONF" \
+        && sudo sed -i 's|^zram-size.*|zram-size = ram / 2|' "$ZRAM_CONF" \
+        || echo "zram-size = ram / 2" | sudo tee -a "$ZRAM_CONF" > /dev/null
+
+        # Reload and restart service
+        sudo systemctl daemon-reload
+        sudo systemctl restart systemd-zram-setup@zram0.service 2>/dev/null || handle_warning "Failed to start ZRAM"
+        echo "-> ZRAM enabled."
+
+    else
         handle_warning "$ZRAM_CONF not found! Skipping ZRAM setup."
         echo "Please ensure the zram-generator package created the default config."
-    else
-        # File exists, proceed with configuration
-        if grep -q "zram-size" "$ZRAM_CONF"; then
-            echo "-> ZRAM is already configured. Skipping."
-        else
-            # If [zram0] exists, append parameters after it
-            if grep -q "\[zram0\]" "$ZRAM_CONF"; then
-                echo "-> Appending settings to existing [zram0] section..."
-                sudo sed -i '/^\[zram0\]/a zram-size = ram / 2\ncompression-algorithm = zstd' "$ZRAM_CONF" || handle_warning "Failed to edit config"
-            else
-                # If file exists but no [zram0] section, append it
-                echo "-> Appending [zram0] section..."
-                printf "\n[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\n" | sudo tee -a "$ZRAM_CONF" > /dev/null || handle_warning "Failed to write config"
-            fi
-
-            # Reload and start
-            sudo systemctl daemon-reload
-            sudo systemctl start systemd-zram-setup@zram0.service 2>/dev/null || handle_warning "Failed to start ZRAM"
-            echo "-> ZRAM enabled."
-        fi
     fi
 fi
 
