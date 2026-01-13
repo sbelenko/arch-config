@@ -1,9 +1,6 @@
 #!/bin/bash
-
 # ==========================================
 # Arch Linux Unified Installation Script
-# Target: Intel N150 (Alder Lake-N)
-# Environment: Hyprland (Wayland)
 # ==========================================
 
 # Colors
@@ -34,106 +31,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Get the directory where this script is located
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-echo -e "${GREEN}=== [1/7] Preparing Package List ===${NC}"
+echo -e "${GREEN}=== [1] Preparing Package List ===${NC}"
+source "$SCRIPT_DIR/scripts/01-packages.sh"
 
-packages=(
-  # --- System Core & Drivers (Critical for N150) ---
-  linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
-  intel-ucode           # REQUIRED: CPU Microcode (Stability & Errata Fixes)
-  thermald              # CRITICAL: Prevents throttling
-  nano                  # Console text editor
-  unzip                 # Archive tools (Extract)
-  zip                   # Archive tools (Create)
-  xdg-user-dirs         # REQUIRED: To generate standard folders
-  flatpak               # Package manager for sandboxed apps
-
-  # --- Drivers (Intel GPU) ---
-  vulkan-intel          # Vulkan
-  intel-media-driver    # VA-API (Video Acceleration)
-
-  # --- Hyprland Ecosystem ---
-  hyprland
-  hyprpaper             # Wallpapers
-  hypridle              # Idle daemon
-  hyprlock              # Lock screen
-  hyprpolkitagent       # Auth agent (GUI sudo)
-
-  # --- Portals (Crucial for interaction) ---
-  xdg-desktop-portal-hyprland # Screen sharing & Hyprland specifics
-  xdg-desktop-portal-gtk      # File picker dialogs & Dark theme sync
-
-  # --- Qt Support ---
-  qt5-wayland           # Qt5 Wayland support (Crucial for UI consistency)
-  qt6-wayland           # Qt6 Wayland support
-
-  # --- UI Components ---
-  waybar                 # Status bar
-  network-manager-applet # Wi-Fi tray icon for Waybar (Crucial for UX)
-  swaync                 # Notifications
-  nwg-look               # GTK Theme manager
-  plymouth               # Boot splash
-  sddm                   # Login manager
-  rofi-wayland           # Launcher
-  wlogout                # Logout menu
-
-  # --- Utilities ---
-  slurp grim            # Screenshots
-  wl-clipboard          # Clipboard (Essential)
-  kitty                 # Terminal
-  nautilus              # File manager
-  loupe                 # Image viewer
-  evince                # Document viewer
-  zed                   # Code editor
-
-  # --- Audio & Bluetooth ---
-  pavucontrol           # GUI Volume mixer
-  blueman               # GUI Bluetooth manager
-
-  # --- Fonts ---
-  noto-fonts
-  noto-fonts-emoji
-  inter-font
-  ttf-jetbrains-mono-nerd
-)
-
-echo -e "${GREEN}=== [2/7] Installing Packages ===${NC}"
-# Update databases and install
-if ! sudo pacman -Syu --noconfirm; then
-    echo -e "${RED}System update failed.${NC}"
-    exit 1
-fi
-
-if ! sudo pacman -S "${packages[@]}" --noconfirm --needed; then
-    echo -e "${RED}Package installation failed.${NC}"
-    exit 1
-fi
-
-# Enable services
-echo "-> Enabling system services..."
-sudo systemctl enable sddm || handle_warning "Failed to enable sddm"
-
-# Enable Thermal Daemon for CPU performance
-sudo systemctl enable thermald || handle_warning "Failed to enable thermald"
-
-echo -e "${GREEN}=== [3/7] Applying Configuration (Dotfiles) ===${NC}"
-mkdir -p "$HOME/.config"
-
-echo "-> Copying configs from 'dots'..."
-cp -rf "$SCRIPT_DIR/dots/"* "$HOME/.config/" || handle_warning "Failed to copy config files"
-
-# Locale (ru_UA)
-echo "-> Setting Locale..."
-sudo sed -i '/^#\s*ru_UA\.UTF-8/s/^#\s*//' /etc/locale.gen || handle_warning "Failed to edit locale.gen"
-sudo locale-gen || handle_warning "Failed to generate locale"
-
-# Fonts & GTK
-echo "-> Setting Fonts..."
-gsettings set org.gnome.desktop.interface font-name 'Inter 11' || handle_warning "Failed to set font"
-gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11' || handle_warning "Failed to set monospace"
-fc-cache -f >/dev/null 2>&1 || true
-
-# User Dirs
-LC_ALL=C xdg-user-dirs-update --force || handle_warning "Failed to update user dirs"
+echo -e "${GREEN}=== [2] Applying Configuration (Dotfiles) ===${NC}"
+source "$SCRIPT_DIR/scripts/02-dotfiles.sh"
 
 echo -e "${GREEN}=== [4/7] Installing Flatpak Apps ===${NC}"
 # Smart fix: Add repo first
