@@ -1,18 +1,3 @@
-read -p "Switch NetworkManager backend to iwd (Recommended)? (y/N): " answer
-if [[ "$answer" =~ ^[Yy] ]]; then
-    sudo pacman -S --noconfirm --needed iwd || handle_warning "Failed to install iwd"
-
-    if [ -d "/etc/NetworkManager/conf.d" ]; then
-        printf "[device]\nwifi.backend=iwd\n" | sudo tee /etc/NetworkManager/conf.d/iwd.conf > /dev/null
-        sudo systemctl restart NetworkManager || handle_warning "Failed to restart NetworkManager"
-        sudo systemctl stop wpa_supplicant 2>/dev/null || true
-        sudo systemctl disable wpa_supplicant 2>/dev/null || true
-        echo "-> NetworkManager switched to iwd."
-    else
-        handle_warning "NetworkManager conf dir not found"
-    fi
-fi
-
 read -p "Enable ZRAM (ram / 2)? (y/N): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then
     ZRAM_CONF="/etc/systemd/zram-generator.conf"

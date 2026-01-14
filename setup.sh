@@ -43,7 +43,7 @@ source "$SCRIPT_DIR/setup-scripts/03-flatpak.sh"
 echo -e "${GREEN}=== [4] Configuring Perfect Boot (Plymouth & Early KMS) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/04-plymouth.sh"
 
-echo -e "${GREEN}=== [5] Optimizations (ZRAM/Net) ===${NC}"
+echo -e "${GREEN}=== [5] Optimizations (ZRAM) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/05-optimize.sh"
 
 echo -e "${GREEN}=== [6] SDDM (Theme Setup) ===${NC}"
