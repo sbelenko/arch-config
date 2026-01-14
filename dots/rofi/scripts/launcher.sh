@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THEME="$HOME/.config/rofi/themes/raycast.rasi"
+THEME="$HOME/.config/rofi/themes/launcher.rasi"
 
 if pgrep -x "rofi" > /dev/null; then
     pkill -x rofi
