@@ -16,3 +16,7 @@ fc-cache -f >/dev/null 2>&1 || true
 
 # User Dirs
 LC_ALL=C xdg-user-dirs-update --force || handle_warning "Failed to update user dirs"
+
+# Rofi scripts permission
+echo "-> Setting execute permission for Rofi scripts..."
+chmod +x "$HOME/.config/rofi/scripts/"*.sh || handle_warning "Failed to set execute permission for rofi scripts"

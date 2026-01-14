@@ -42,10 +42,6 @@
   "tray": {
     "icon-size": 12,
     "spacing": 10,
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
   },
   // Modules (Center)
   "hyprland/workspaces": {
@@ -138,11 +134,7 @@
   },
   "custom/powermenu": {
     "format": "",
-    "on-click": "wlogout -l ~/.config/wlogout/layout_1 -C ~/.config/wlogout/style_1.css",
-  },
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "~/.config/rofi/scripts/powemenu.sh",
+    "on-click": "~/.config/rofi/scripts/powermenu.sh",
     "tooltip": false,
   },
 }
