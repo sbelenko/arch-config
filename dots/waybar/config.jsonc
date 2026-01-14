@@ -24,7 +24,7 @@
   // Modules (Left)
   "custom/apps": {
     "format": "󰣇",
-    "on-click": "pidof rofi && killall rofi || rofi -show drun",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
     "tooltip": false,
   },
   "mpris": {
