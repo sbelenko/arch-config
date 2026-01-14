@@ -9,7 +9,7 @@ Item {
   property var session: sessionPanel.session
   property var inputHeight: Screen.height * 0.032
   property var inputWidth: Screen.width * 0.16
-  
+
   // Optional background container with elevation
   Item {
     id: loginBackgroundContainer
@@ -20,7 +20,7 @@ Item {
     height: inputHeight * ( config.UserIcon == "true" ? 11.2 : 5.3 )
     width: inputWidth * 1.2
     visible: config.LoginBackground == "true" ? true : false
-    
+
     // Material 3 Elevation Level 3 - Key shadow
     DropShadow {
       anchors.fill: loginBackground
@@ -32,7 +32,7 @@ Item {
       source: loginBackground
       cached: true
     }
-    
+
     // Material 3 Elevation Level 3 - Ambient shadow
     DropShadow {
       anchors.fill: loginBackground
@@ -44,7 +44,7 @@ Item {
       source: loginBackground
       cached: true
     }
-    
+
     Rectangle {
       id: loginBackground
       anchors.fill: parent
@@ -52,7 +52,7 @@ Item {
       color: config.Surface
     }
   }
-  
+
   Column {
     spacing: 8
     anchors {
@@ -70,7 +70,7 @@ Item {
     }
     z: 5
   }
-  
+
   Column {
     spacing: 8
     anchors {
@@ -82,33 +82,33 @@ Item {
     }
     z: 5
   }
-  
+
   Column {
     spacing: 16  // 16dp spacing per Material 3 grid
     z: 5
     width: inputWidth
     anchors {
-      verticalCenter: parent.verticalCenter
+      bottom: parent.bottom
       horizontalCenter: parent.horizontalCenter
     }
-    
+
     UserField {
       id: userField
       height: inputHeight
       width: parent.width
     }
-    
+
     PasswordField {
       id: passwordField
       height: inputHeight
       width: parent.width
       onAccepted: loginButton.clicked()
     }
-    
+
     Item {
       implicitHeight: loginButton.height
       implicitWidth: parent.width
-      
+
       // Material 3 Elevation Level 1 - Key shadow for button
       DropShadow {
         anchors.fill: loginButton
@@ -121,7 +121,7 @@ Item {
         cached: true
         visible: loginButton.enabled
       }
-      
+
       // Material 3 Elevation Level 1 - Ambient shadow for button
       DropShadow {
         anchors.fill: loginButton
@@ -134,7 +134,7 @@ Item {
         cached: true
         visible: loginButton.enabled
       }
-      
+
       Button {
         id: loginButton
 				visible: config.LoginButton == "true" ? true : false
@@ -142,7 +142,7 @@ Item {
         implicitWidth: parent.width
 				enabled: true
         hoverEnabled: true
-        
+
         contentItem: Text {
           id: buttonText
 					visible: config.LoginButton == "true" ? true : false
@@ -158,14 +158,14 @@ Item {
           text: "Login"
           opacity: loginButton.enabled ? 1.0 : 0.38
         }
-        
+
         background: Rectangle {
           id: buttonBackground
 					visible: config.LoginButton == "true" ? true : false
           radius: inputHeight / 2  // Full rounding
           color: loginButton.enabled ? config.Primary : config.OnSurface
           opacity: loginButton.enabled ? 1.0 : 0.12
-          
+
           // State layer overlay
           Rectangle {
             anchors.fill: parent
@@ -177,23 +177,23 @@ Item {
               if (loginButton.hovered) return 0.08
               return 0
             }
-            
+
             Behavior on opacity {
-              NumberAnimation { 
+              NumberAnimation {
                 duration: 200
                 easing.type: Easing.OutCubic
               }
             }
           }
         }
-        
+
         onClicked: {
           sddm.login(user, password, session)
         }
       }
     }
   }
-  
+
   Connections {
     target: sddm
 
