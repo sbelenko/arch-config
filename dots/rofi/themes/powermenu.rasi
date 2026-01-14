@@ -1,5 +1,10 @@
 configuration {
     show-icons:                 false;
+
+    /* Mouse settings */
+    hover-select:                true;
+    me-select-entry:             "";
+    me-accept-entry:             "MousePrimary";
 }
 
 * {

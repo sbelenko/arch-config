@@ -11,6 +11,11 @@ configuration {
     display-run:                "Run";
     drun-display-format:        "{name}";
     font:                       "JetBrainsMono Nerd Font Medium 11";
+
+    /* Mouse settings */
+    hover-select:                true;
+    me-select-entry:             "";
+    me-accept-entry:             "MousePrimary";
 }
 
 * {
@@ -83,6 +88,7 @@ element {
     orientation:                horizontal;
     border-radius:              6px;
     padding:                    8px 12px;
+    cursor:                     pointer;
 }
 
 element-icon {
@@ -96,6 +102,7 @@ element-text {
     background-color:           transparent;
     text-color:                 inherit;
     vertical-align:             0.5;
+    cursor:                     inherit;
 }
 
 element selected {

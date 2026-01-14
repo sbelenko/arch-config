@@ -8,7 +8,7 @@ shutdown="󰐥  Shutdown"
 
 options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
 
-chosen="$(echo -e "$options" | rofi -dmenu -i -p "Power" -theme ~/.config/rofi/powermenu.rasi)"
+chosen="$(echo -e "$options" | rofi -dmenu -i -p "Power" -theme ~/.config/rofi/themes/powermenu.rasi)"
 
 case $chosen in
     $lock)     loginctl lock-session ;;
