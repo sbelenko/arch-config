@@ -39,7 +39,7 @@ packages=(
   rofi-wayland           # Launcher
 
   # --- Utilities ---
-  slurp grim            # Screenshots
+  slurp grim satty      # Screenshots
   wl-clipboard          # Clipboard (Essential)
   kitty                 # Terminal
   nautilus              # File manager
