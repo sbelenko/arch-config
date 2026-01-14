@@ -8,7 +8,7 @@ configuration {
 }
 
 * {
-    font:                        "JetBrainsMono Nerd Font 14";
+    font:                        "JetBrainsMono Nerd Font 12";
     background:                  #1E1E2E;
     foreground:                  #CDD6F4;
     selected:                    #89B4FA;
@@ -22,7 +22,7 @@ window {
     anchor:                      center;
     width:                       350px;
     border:                      2px;
-    border-radius:               12px;
+    border-radius:               5px;
     border-color:                @selected;
     background-color:            @background;
 }
@@ -54,14 +54,14 @@ listview {
 element {
     enabled:                     true;
     padding:                     12px 20px;
-    border-radius:               8px;
+    border-radius:               5px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
 
 element-text {
-    font:                        "JetBrainsMono Nerd Font 18";
+    font:                        "JetBrainsMono Nerd Font 12";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;

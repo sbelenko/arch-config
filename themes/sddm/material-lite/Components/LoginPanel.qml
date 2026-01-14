@@ -48,7 +48,7 @@ Item {
     Rectangle {
       id: loginBackground
       anchors.fill: parent
-      radius: 28  // Extra large corner radius
+      radius: 5  // Extra large corner radius
       color: config.Surface
     }
   }
@@ -162,7 +162,7 @@ Item {
         background: Rectangle {
           id: buttonBackground
 					visible: config.LoginButton == "true" ? true : false
-          radius: inputHeight / 2  // Full rounding
+          radius: 5  // Full rounding
           color: loginButton.enabled ? config.Primary : config.OnSurface
           opacity: loginButton.enabled ? 1.0 : 0.12
 
