@@ -36,10 +36,10 @@ packages=(
   nwg-look               # GTK Theme manager
   plymouth               # Boot splash
   sddm                   # Login manager
-  rofi-wayland           # Launcher
+  rofi                   # Launcher
 
   # --- Utilities ---
-  slurp grim satty      # Screenshots
+  slurp grim satty hyprshot     # Screenshots
   wl-clipboard          # Clipboard (Essential)
   kitty                 # Terminal
   nautilus              # File manager
