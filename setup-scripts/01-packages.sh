@@ -54,6 +54,7 @@ packages=(
   # --- Fonts ---
   noto-fonts
   noto-fonts-emoji
+  inter-font
   ttf-jetbrains-mono-nerd
 )
 
