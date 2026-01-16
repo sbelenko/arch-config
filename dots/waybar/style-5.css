@@ -1,37 +1,53 @@
+/*
+ * Waybar Theme: 5/10 - Classic Dark (Green Accent)
+ */
 * {
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-weight: bold;
-    font-size: 13px;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     border: none;
+    min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
+    background-color: #202124; /* Google's dark gray */
+    color: #e8eaed; /* Google's light gray text */
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-.modules-left, .modules-center, .modules-right {
-    background: rgba(26, 27, 38, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2px 12px;
-    margin-top: 4px;
-}
-
-.modules-center {
-    background: rgba(187, 154, 247, 0.15);
-    border: 1px solid rgba(187, 154, 247, 0.3);
-    color: #bb9af7;
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 10px;
 }
 
 #workspaces button {
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 4px;
+    color: #9aa0a6;
+    padding: 0 5px;
+    background-color: transparent;
 }
 
 #workspaces button.active {
-    color: #bb9af7;
+    color: #a5d6a7; /* Google Green Accent */
+    border-bottom: 3px solid #a5d6a7;
 }
 
-#clock {
-    font-weight: 800;
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 10px;
+}
+
+#custom-apps {
+    color: #a5d6a7; /* Google Green Accent */
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+#custom-powermenu {
+    color: #f28b82; /* Google Red Accent */
 }

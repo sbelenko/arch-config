@@ -1,9 +1,9 @@
-// feat: optimize waybar config for chrome-os style
+// Waybar Config: 1/10 - Chrome OS Classic Light (Blue Accent)
 {
   "layer": "top",
   "position": "top",
   "height": 34,
-  "margin": "5 5 0 5", // top right bottom left
+  "margin": "5 5 0 5", // A small margin for the floating bar effect
   "spacing": 8,
   "reload_style_on_change": true,
   "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],

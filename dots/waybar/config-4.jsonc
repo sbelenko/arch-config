@@ -1,24 +1,20 @@
+// Waybar Config: 4/10 - Dark Pill (Blue Accent)
 {
   "layer": "top",
   "position": "top",
-  "height": 36,
-  "margin": "8 10 0 10",
-  "spacing": 12,
+  "height": 34,
+  "margin": "5 5 0 5",
+  "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": [
-    "custom/apps",
-    "hyprland/workspaces",
-    "mpris"
-  ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
-    "tray",
-    "pulseaudio",
-    "bluetooth",
-    "network",
+    "custom/notifications",
     "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
     "custom/powermenu"
   ],
   "custom/apps": {
@@ -29,35 +25,17 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "󰮯",
-      "default": "󰊠",
-      "persistent": "󰊠"
+      "active": "●",
+      "default": "○"
     }
   },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
   "clock": {
-    "format": "󰃭 {:%a %d  󱑒 %H:%M}",
+    "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
-  "pulseaudio": {
-    "format": "{icon}",
-    "format-bluetooth": "󰂰",
-    "format-muted": "󰝟",
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "on-click": "pavucontrol"
-  },
-  "network": {
-    "format-wifi": "󰤨",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤮",
-    "on-click": "nm-connection-editor"
-  },
-  "hyprland/language": {
-    "format": "{short}"
-  },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 8
-  }
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

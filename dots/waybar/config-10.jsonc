@@ -1,10 +1,41 @@
+// Waybar Config: 10/10 - Minimalist Dark
 {
   "layer": "top",
   "position": "top",
-  "height": 42,
-  "margin": "10 100 0 100",
-  "modules-center": ["custom/apps", "hyprland/workspaces", "clock", "pulseaudio", "custom/powermenu"],
-  "hyprland/workspaces": { "format": "{icon}" },
-  "clock": { "format": "󱑒 %H:%M" },
-  "custom/apps": { "format": "󰣇" }
+  "height": 32, // Slightly smaller height
+  "margin": "5 5 0 5",
+  "spacing": 6, // Tighter spacing
+  "reload_style_on_change": true,
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  
+  "tray": { "icon-size": 13, "spacing": 8 }
 }

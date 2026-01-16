@@ -1,83 +1,52 @@
+/*
+ * Waybar Theme: 3/10 - Light Pill (Blue Accent)
+ */
 * {
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-weight: bold;
-    font-size: 13px;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     border: none;
-    border-radius: 0;
     min-height: 0;
 }
 
 window#waybar {
     background: transparent;
+    color: #202124; /* Dark text for light pills */
 }
 
-/* Common container style for islands */
 .modules-left,
-#workspaces,
+.modules-center,
 .modules-right {
-    background: rgba(26, 27, 38, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
+    background-color: #e8eaed; /* Light gray pill background */
+    border-radius: 20px;
     padding: 2px 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 2px 0;
 }
 
-/* Active Workspace Animation */
 #workspaces button {
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 6px;
-    transition: all 0.3s ease;
+    color: #5f6368;
+    padding: 0 4px;
 }
 
 #workspaces button.active {
-    color: #8ab4f8;
-    padding: 0 10px;
-    background: rgba(138, 180, 248, 0.15);
-    border-radius: 12px;
+    color: #4285f4; /* Google Blue */
 }
 
-#workspaces button:hover {
-    color: #ffffff;
-}
-
-/* Module-specific styles */
-#custom-apps {
-    color: #8ab4f8;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-#clock {
-    color: #e8eaed;
-    font-weight: 800;
-}
-
-#pulseaudio, #network, #bluetooth, #language {
-    padding: 0 6px;
-    color: #e8eaed;
-}
-
-/* Hover effects for islands */
-.modules-left:hover, #workspaces:hover, .modules-right:hover {
-    background: rgba(26, 27, 38, 0.85);
-    border: 1px solid rgba(138, 180, 248, 0.3);
-}
-
-/* Tray management */
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
 #tray {
-    margin-left: 10px;
+    padding: 0 6px;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#custom-apps {
+    color: #4285f4; /* Google Blue */
+    font-size: 18px;
+    padding-right: 8px;
 }
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-
-/* Mpris styling */
-#mpris {
-    color: #bb9af7;
-    margin: 0 8px;
+#custom-powermenu {
+    color: #d93025; /* Google Red */
 }

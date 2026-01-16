@@ -1,13 +1,27 @@
+// Waybar Config: 7/10 - Classic Dark (Yellow Accent)
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "margin": "10 15 0 15",
-  "spacing": 15,
+  "height": 34,
+  "margin": "5 5 0 5",
+  "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": ["custom/apps", "mpris"],
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["tray", "pulseaudio", "network", "clock"],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -15,8 +29,13 @@
       "default": "○"
     }
   },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
   "clock": {
     "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>"
-  }
+  },
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

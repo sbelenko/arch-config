@@ -1,59 +1,53 @@
-/* style: chrome-os / harmonyos aesthetic */
+/*
+ * Waybar Theme: 1/10 - Chrome OS Classic Light (Blue Accent)
+ */
 * {
-    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 14px;
     border: none;
     min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
+    background-color: #f1f3f4; /* Google's light gray */
+    color: #202124; /* Google's dark gray text */
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-/* Островки (Modules Containers) */
 .modules-left,
-#workspaces,
+.modules-center,
 .modules-right {
-    background: rgba(20, 20, 20, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2px 12px;
-    transition: all 0.3s ease;
+    padding: 0 10px;
 }
 
-/* Эффект при наведении */
-.modules-left:hover, #workspaces:hover, .modules-right:hover {
-    background: rgba(30, 30, 30, 0.85);
-}
-
-/* Workspaces */
 #workspaces button {
-    color: #9da5b4;
-    padding: 0 4px;
+    color: #5f6368;
+    padding: 0 5px;
+    background-color: transparent;
 }
 
 #workspaces button.active {
-    color: #ffffff;
+    color: #4285f4; /* Google Blue */
+    border-bottom: 3px solid #4285f4;
 }
 
-/* Отдельные модули внутри правой части */
-.modules-right label,
-.modules-right image {
-    margin: 0 4px;
-}
-
-#clock {
-    font-weight: bold;
-    color: #8ab4f8; /* Chrome OS Accent Color */
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 10px;
 }
 
 #custom-apps {
-    color: #8ab4f8;
-    font-size: 16px;
-    padding-right: 8px;
+    color: #4285f4; /* Google Blue */
+    font-size: 18px;
+    padding-right: 5px;
 }
 
-#tray {
-    margin-left: 8px;
+#custom-powermenu {
+    color: #d93025; /* Google Red */
 }

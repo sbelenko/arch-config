@@ -1,73 +1,52 @@
+/*
+ * Waybar Theme: 4/10 - Dark Pill (Blue Accent)
+ */
 * {
-    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     border: none;
-    border-radius: 0;
+    min-height: 0;
 }
 
 window#waybar {
     background: transparent;
+    color: #e8eaed; /* Light text for dark pills */
 }
 
-/* Individual capsule style */
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    padding: 2px 16px;
+    background-color: #3c4043; /* Dark gray pill background */
+    border-radius: 20px;
+    padding: 2px 12px;
+    margin: 2px 0;
 }
 
-/* Chrome OS Blue Accent for Center Clock */
-.modules-center {
-    background: rgba(138, 180, 248, 0.15);
-    border: 1px solid rgba(138, 180, 248, 0.3);
-    color: #8ab4f8;
-}
-
-/* Workspaces as Material Dots */
 #workspaces button {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 16px;
+    color: #9aa0a6;
     padding: 0 4px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #workspaces button.active {
-    color: #8ab4f8;
-    transform: scale(1.2);
+    color: #8ab4f8; /* Google Blue Accent */
 }
 
-#workspaces button.urgent {
-    color: #f28b82;
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 6px;
 }
-
-/* Unified System Tray (Right Side) */
-#pulseaudio, #network, #bluetooth, #language, #tray {
-    padding: 0 8px;
-    margin: 4px 0;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#tray { border-left: none; }
 
 #custom-apps {
+    color: #8ab4f8; /* Google Blue Accent */
     font-size: 18px;
-    color: #8ab4f8;
-    padding-right: 12px;
+    padding-right: 8px;
 }
 
-/* Power Menu specific styling */
 #custom-powermenu {
-    color: #f28b82;
-    padding-left: 8px;
-}
-
-/* Animation on hover for all islands */
-.modules-left:hover, .modules-right:hover {
-    background: rgba(45, 45, 45, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f28b82; /* Google Red Accent */
 }

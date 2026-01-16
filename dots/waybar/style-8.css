@@ -1,9 +1,53 @@
-.modules-left, .modules-center, .modules-right {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 0 12px;
+/*
+ * Waybar Theme: 8/10 - Material You Light (Lilac)
+ */
+* {
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    min-height: 0;
 }
-#workspaces button.active { color: #3fb2ff; }
-#mpris { color: #3fb2ff; font-style: italic; }
+
+window#waybar {
+    background-color: #e6e0e9; /* Light Lilac Background */
+    color: #202124; /* Dark Text */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 10px;
+}
+
+#workspaces button {
+    color: #6c5f7c;
+    padding: 0 5px;
+    background-color: transparent;
+}
+
+#workspaces button.active {
+    color: #d0bfff; /* Lilac Accent */
+    border-bottom: 3px solid #d0bfff;
+}
+
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 10px;
+}
+
+#custom-apps {
+    color: #d0bfff; /* Lilac Accent */
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+#custom-powermenu {
+    color: #d93025; /* Red for power */
+}

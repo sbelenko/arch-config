@@ -1,59 +1,53 @@
+/*
+ * Waybar Theme: 2/10 - Chrome OS Classic Dark (Blue Accent)
+ */
 * {
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-weight: bold;
-    font-size: 13px;
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     border: none;
     min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
+    background-color: #202124; /* Google's dark gray */
+    color: #e8eaed; /* Google's light gray text */
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-/* Group modules into floating islands */
 .modules-left,
-#workspaces,
+.modules-center,
 .modules-right {
-    background: rgba(20, 20, 20, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2px 10px;
-    margin-top: 2px;
+    padding: 0 10px;
 }
 
-/* Individual module spacing and transitions */
-.module {
-    margin: 0 5px;
-    transition: all 0.2s ease-in-out;
-}
-
-/* Workspace styling */
 #workspaces button {
-    color: rgba(232, 234, 237, 0.4);
-    padding: 0 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #9aa0a6;
+    padding: 0 5px;
+    background-color: transparent;
 }
 
 #workspaces button.active {
-    color: #8ab4f8;
-    padding: 0 8px;
+    color: #8ab4f8; /* Google Blue Accent */
+    border-bottom: 3px solid #8ab4f8;
 }
 
-#workspaces button:hover {
-    color: #e8eaed;
-    background: transparent;
-}
-
-/* Specific module accents */
-#clock {
-    color: #8ab4f8;
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 10px;
 }
 
 #custom-apps {
-    color: #8ab4f8;
-    font-size: 15px;
+    color: #8ab4f8; /* Google Blue Accent */
+    font-size: 18px;
+    padding-right: 5px;
 }
 
-#tray {
-    margin-left: 5px;
+#custom-powermenu {
+    color: #f28b82; /* Google Red Accent */
 }

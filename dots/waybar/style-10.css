@@ -1,9 +1,53 @@
-.modules-center {
-    background: #1e1e1e;
-    border: 2px solid #8ab4f8;
-    border-radius: 30px;
-    padding: 0 25px;
+/*
+ * Waybar Theme: 10/10 - Minimalist Dark
+ */
+* {
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 500;
+    font-size: 13px; /* Slightly smaller font */
+    border: none;
+    min-height: 0;
 }
-#clock { margin: 0 15px; color: #8ab4f8; }
-#workspaces button { padding: 0 8px; }
-#custom-apps { font-size: 20px; }
+
+window#waybar {
+    background-color: #1a1a1a;
+    color: #c0c0c0;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 5px; /* Reduced padding */
+}
+
+#workspaces button {
+    color: #888888;
+    padding: 0 4px;
+    background-color: transparent;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+#clock,
+#bluetooth,
+#network,
+#pulseaudio,
+#hyprland-language,
+#tray {
+    padding: 0 8px;
+}
+
+#custom-apps {
+    color: #ffffff;
+    font-size: 16px;
+    padding-right: 3px;
+}
+
+#custom-powermenu {
+    color: #ff6666;
+}

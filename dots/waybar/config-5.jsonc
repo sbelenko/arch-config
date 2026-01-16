@@ -1,13 +1,22 @@
+// Waybar Config: 5/10 - Classic Dark (Green Accent)
 {
   "layer": "top",
   "position": "top",
-  "height": 36,
-  "margin": "8 10 0 10",
-  "spacing": 10,
+  "height": 34,
+  "margin": "5 5 0 5",
+  "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": ["custom/apps", "hyprland/workspaces", "mpris"],
-  "modules-center": ["clock"],
-  "modules-right": ["tray", "pulseaudio", "network", "hyprland/language", "custom/powermenu"],
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
   "custom/apps": {
     "format": "󰣇",
     "on-click": "~/.config/rofi/scripts/launcher.sh",
@@ -16,35 +25,17 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "󰮯",
-      "default": "󰊠"
+      "active": "●",
+      "default": "○"
     }
   },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
   "clock": {
-    "format": "󱑒 %H:%M",
+    "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-icons": {
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
-  },
-  "network": {
-    "format-wifi": "󰤨",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤮"
-  },
-  "hyprland/language": {
-    "format": "{short}"
-  },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 8
-  },
-  "custom/powermenu": {
-    "format": "",
-    "on-click": "~/.config/rofi/scripts/powermenu.sh"
-  }
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

@@ -1,19 +1,13 @@
+// Waybar Config: 2/10 - Chrome OS Classic Dark (Blue Accent)
 {
   "layer": "top",
   "position": "top",
   "height": 34,
-  "margin": "6 6 0 6",
-  "spacing": 4,
+  "margin": "5 5 0 5", // A small margin for the floating bar effect
+  "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": [
-    "custom/apps",
-    "hyprland/submap",
-    "mpris",
-    "tray"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "custom/notifications",
     "hyprland/language",
@@ -42,8 +36,6 @@
     "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10
-  }
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

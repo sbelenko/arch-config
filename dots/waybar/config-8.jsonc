@@ -1,15 +1,41 @@
+// Waybar Config: 8/10 - Material You Light (Lilac)
 {
   "layer": "top",
   "position": "top",
-  "height": 38,
-  "margin": "10 15 0 15",
+  "height": 34,
+  "margin": "5 5 0 5",
   "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": ["custom/apps", "hyprland/workspaces"],
-  "modules-center": ["mpris"],
-  "modules-right": ["pulseaudio", "network", "clock", "custom/powermenu"],
-  "custom/apps": { "format": "󰀻", "on-click": "rofi -show drun" },
-  "hyprland/workspaces": { "format": "{icon}" },
-  "mpris": { "format": "{player_icon} {title}", "player-icons": { "default": "󰎆" } },
-  "clock": { "format": "{:%H:%M | %a %d}" }
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

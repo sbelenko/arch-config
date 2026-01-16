@@ -1,19 +1,13 @@
+// Waybar Config: 3/10 - Light Pill (Blue Accent)
 {
   "layer": "top",
   "position": "top",
   "height": 34,
-  "margin": "6 6 0 6",
-  "spacing": 0,
+  "margin": "5 5 0 5",
+  "spacing": 8,
   "reload_style_on_change": true,
-  "modules-left": [
-    "custom/apps",
-    "hyprland/submap",
-    "mpris",
-    "tray"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "custom/notifications",
     "hyprland/language",
@@ -28,64 +22,20 @@
     "on-click": "~/.config/rofi/scripts/launcher.sh",
     "tooltip": false
   },
-  "mpris": {
-    "format": "{player_icon}",
-    "format-paused": "{status_icon}",
-    "player-icons": {
-      "default": "󰏤",
-      "mpv": "󰈫"
-    },
-    "status-icons": {
-      "paused": "󰐊"
-    },
-    "tooltip": false
-  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "active": "●",
       "default": "○"
-    },
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1"
+    }
   },
   "hyprland/language": {
-    "format": "󰗊 {short}",
-    "format-en": "US",
-    "format-ru": "RU"
-  },
-  "bluetooth": {
-    "format": "󰂯",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱",
-    "tooltip-format-connected": "{device_enumerate}",
-    "on-click": "blueman-manager"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟",
-    "format-icons": {
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
-  },
-  "network": {
-    "format-wifi": "󰤨",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤮",
-    "tooltip-format": "{essid} ({signalStrength}%)"
+    "format": "󰗊 {short}"
   },
   "clock": {
     "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
-  "custom/powermenu": {
-    "format": "",
-    "on-click": "~/.config/rofi/scripts/powermenu.sh",
-    "tooltip": false
-  },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 8
-  }
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }

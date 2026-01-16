@@ -1,12 +1,41 @@
+// Waybar Config: 9/10 - Material You Dark (Lilac)
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
-  "margin": "0",
-  "spacing": 0,
-  "modules-left": ["custom/apps", "hyprland/workspaces"],
-  "modules-right": ["tray", "network", "pulseaudio", "clock"],
-  "custom/apps": { "format": "" },
-  "hyprland/workspaces": { "format": "●" },
-  "clock": { "format": "{:%H:%M}" }
+  "height": 34,
+  "margin": "5 5 0 5",
+  "spacing": 8,
+  "reload_style_on_change": true,
+  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  
+  "tray": { "icon-size": 14, "spacing": 10 }
 }
