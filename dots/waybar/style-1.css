@@ -1,0 +1,59 @@
+/* style: chrome-os / harmonyos aesthetic */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Островки (Modules Containers) */
+.modules-left,
+#workspaces,
+.modules-right {
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2px 12px;
+    transition: all 0.3s ease;
+}
+
+/* Эффект при наведении */
+.modules-left:hover, #workspaces:hover, .modules-right:hover {
+    background: rgba(30, 30, 30, 0.85);
+}
+
+/* Workspaces */
+#workspaces button {
+    color: #9da5b4;
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+}
+
+/* Отдельные модули внутри правой части */
+.modules-right label,
+.modules-right image {
+    margin: 0 4px;
+}
+
+#clock {
+    font-weight: bold;
+    color: #8ab4f8; /* Chrome OS Accent Color */
+}
+
+#custom-apps {
+    color: #8ab4f8;
+    font-size: 16px;
+    padding-right: 8px;
+}
+
+#tray {
+    margin-left: 8px;
+}

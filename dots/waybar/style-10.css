@@ -1,0 +1,9 @@
+.modules-center {
+    background: #1e1e1e;
+    border: 2px solid #8ab4f8;
+    border-radius: 30px;
+    padding: 0 25px;
+}
+#clock { margin: 0 15px; color: #8ab4f8; }
+#workspaces button { padding: 0 8px; }
+#custom-apps { font-size: 20px; }

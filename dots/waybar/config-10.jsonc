@@ -1,0 +1,10 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 42,
+  "margin": "10 100 0 100",
+  "modules-center": ["custom/apps", "hyprland/workspaces", "clock", "pulseaudio", "custom/powermenu"],
+  "hyprland/workspaces": { "format": "{icon}" },
+  "clock": { "format": "󱑒 %H:%M" },
+  "custom/apps": { "format": "󰣇" }
+}

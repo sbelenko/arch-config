@@ -1,0 +1,15 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "margin": "10 15 0 15",
+  "spacing": 8,
+  "reload_style_on_change": true,
+  "modules-left": ["custom/apps", "hyprland/workspaces"],
+  "modules-center": ["mpris"],
+  "modules-right": ["pulseaudio", "network", "clock", "custom/powermenu"],
+  "custom/apps": { "format": "󰀻", "on-click": "rofi -show drun" },
+  "hyprland/workspaces": { "format": "{icon}" },
+  "mpris": { "format": "{player_icon} {title}", "player-icons": { "default": "󰎆" } },
+  "clock": { "format": "{:%H:%M | %a %d}" }
+}

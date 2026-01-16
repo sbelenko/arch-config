@@ -1,0 +1,49 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "margin": "6 6 0 6",
+  "spacing": 4,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/apps",
+    "hyprland/submap",
+    "mpris",
+    "tray"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/notifications",
+    "hyprland/language",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "clock",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+  "hyprland/language": {
+    "format": "󰗊 {short}"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  }
+}

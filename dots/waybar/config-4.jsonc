@@ -1,0 +1,63 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "margin": "8 10 0 10",
+  "spacing": 12,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/apps",
+    "hyprland/workspaces",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "hyprland/language",
+    "custom/powermenu"
+  ],
+  "custom/apps": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
+      "persistent": "󰊠"
+    }
+  },
+  "clock": {
+    "format": "󰃭 {:%a %d  󱑒 %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "󰂰",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "on-click": "nm-connection-editor"
+  },
+  "hyprland/language": {
+    "format": "{short}"
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  }
+}

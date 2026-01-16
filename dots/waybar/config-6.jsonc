@@ -1,0 +1,26 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "margin": "5 5 0 5",
+  "spacing": 5,
+  "reload_style_on_change": true,
+  "modules-left": ["custom/apps", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["mpris", "bluetooth", "pulseaudio", "network", "clock", "custom/powermenu"],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  }
+}
