@@ -1,0 +1,49 @@
+/*
+ * СТИЛЬ 2 (GNOME MOD): "Парящие таблетки"
+ * Модификация стиля 2 с рабочими столами в виде точек.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+.modules-left,
+.modules-right {
+    background-color: #202124;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin: 5px 3px;
+}
+
+.module {
+    padding: 0 8px;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    background-color: #202124;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 2px 5px; /* Компактный блок */
+    margin: 5px 3px;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 8px; /* Делаем иконки маленькими точками */
+}
+
+#workspaces button.active {
+    color: #8ab4f8;
+    font-size: 8px; /* Размер тот же, только цвет */
+}

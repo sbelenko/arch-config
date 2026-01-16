@@ -1,0 +1,52 @@
+/* 
+ * СТИЛЬ 5: "Акцентный"
+ * Вся панель окрашена в один цвет.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    color: #ecf0f1; /* Светлый текст для контраста */
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: #34495e; /* Насыщенный сине-серый */
+    border-radius: 0;
+    margin: 0;
+}
+
+.module {
+    padding: 0 10px;
+    background: transparent;
+}
+
+/* Разделители между модулями */
+#workspaces, .module {
+    border-left: 1px solid rgba(236, 240, 241, 0.2);
+}
+
+.modules-left .module:first-child {
+    border-left: none;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (Workspaces) --- */
+#workspaces button {
+    color: rgba(236, 240, 241, 0.7);
+    padding: 0 8px;
+    background: none;
+    border: none;
+}
+
+#workspaces button:hover {
+    color: #ecf0f1;
+}
+
+/* Активный воркспейс просто становится ярче */
+#workspaces button.active {
+    color: #ffffff;
+    font-size: 16px;
+}

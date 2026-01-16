@@ -1,0 +1,63 @@
+/* 
+ * СТИЛЬ 3: "Минималистичный"
+ * Плоская, полноширинная панель с разделителями.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: normal; /* Более тонкий шрифт для минимализма */
+    font-size: 13px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: #202124;
+    border-radius: 0; /* Убираем скругления */
+    margin: 0; /* На всю ширину */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия снизу */
+}
+
+/* Убираем фон с групп */
+#workspaces,
+.modules-left,
+.modules-center,
+.modules-right {
+    background: none;
+    padding: 0 5px;
+}
+
+/* Добавляем разделители между модулями */
+.module {
+    padding: 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modules-right .module:last-child,
+.modules-left .module:first-child {
+    border: none; /* Убираем лишние линии по краям */
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (Workspaces) --- */
+#workspaces {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+#workspaces button {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0 8px;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button:hover {
+    color: #e8eaed;
+}
+
+/* Активный воркспейс выделяется линией сверху */
+#workspaces button.active {
+    color: #8ab4f8;
+    border-top: 2px solid #8ab4f8;
+}

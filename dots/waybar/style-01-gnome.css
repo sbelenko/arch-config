@@ -1,0 +1,58 @@
+/*
+ * СТИЛЬ 1 (GNOME MOD): "Материальный"
+ * Модификация стиля 1 с рабочими столами в виде точек.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: #202124;
+    border-radius: 10px;
+    margin: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 3px;
+}
+
+.modules-left,
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 2px 8px;
+}
+
+.module {
+    padding: 0 8px;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 2px 5px; /* Компактный блок */
+}
+
+#workspaces button {
+    padding: 0 2px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 8px; /* Делаем иконки маленькими точками */
+}
+
+#workspaces button.active {
+    color: #8ab4f8;
+    font-size: 8px; /* Размер тот же, только цвет */
+}

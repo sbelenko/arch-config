@@ -1,0 +1,54 @@
+/*
+ * СТИЛЬ 3 (GNOME MOD): "Минималистичный"
+ * Модификация стиля 3 с рабочими столами в виде точек.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: normal;
+    font-size: 13px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: #202124;
+    border-radius: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modules-left, .modules-right {
+    padding: 0 5px;
+}
+.module {
+    padding: 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.modules-right .module:last-child,
+.modules-left .module:first-child {
+    border: none;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    padding: 0 5px;
+}
+
+#workspaces button {
+    padding: 0 3px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 8px; /* Маленькие точки */
+}
+
+#workspaces button:hover {
+    color: #e8eaed;
+}
+
+#workspaces button.active {
+    color: #8ab4f8;
+}
