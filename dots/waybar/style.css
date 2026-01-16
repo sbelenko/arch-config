@@ -26,7 +26,7 @@ window#waybar > box {
 }
 
 .module {
-    padding: 0 8px;
+    padding: 0 4px; /* Slightly reduce padding to let spacing be the primary separator */
 }
 
 /* Remove individual backgrounds for a unified look */
@@ -35,18 +35,9 @@ window#waybar > box {
 #workspaces,
 #tray {
     background-color: transparent;
-    padding: 2px 5px; /* Add some padding for spacing */
 }
 
-/* Add subtle separators between module groups */
-.modules-left, .modules-center {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding-right: 10px;
-}
-.modules-center {
-    padding-left: 5px;
-}
-
+/* NO SEPARATORS for a cleaner look */
 
 /* Keep hover effect for interactivity */
 #workspaces button:hover,
