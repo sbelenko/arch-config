@@ -1,0 +1,53 @@
+* {
+    /*all: unset;*/
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+    color: #e8eaed;
+}
+/* Waybar */
+window#waybar {
+    background-color: transparent;
+}
+window#waybar > box {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 5px;
+    margin: 2px;
+}
+/* Modules */
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 5px;
+}
+.module {
+    padding: 0 8px;
+}
+.modules-left .module {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+/* workspaces */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0;
+    border-radius: 5px;
+}
+#workspaces button {
+    padding: 0 8px;
+}
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+/* tray bg */
+#tray {
+    background-color: rgba(255, 255, 255, 0.2);
+}

@@ -5,49 +5,58 @@
     font-size: 12px;
     color: #e8eaed;
 }
+
 /* Waybar */
 window#waybar {
     background-color: transparent;
 }
+
 window#waybar > box {
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 2px #000;
     border-radius: 5px;
     margin: 2px;
 }
+
 /* Modules */
 .modules-left,
 .modules-center,
 .modules-right {
     margin: 5px;
 }
+
 .module {
     padding: 0 8px;
 }
-.modules-left .module {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    padding: 0 10px;
-}
-.modules-right {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    padding: 2px 5px;
-}
-/* workspaces */
-#workspaces {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0;
-    border-radius: 5px;
-}
-#workspaces button {
-    padding: 0 8px;
-}
-#workspaces button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-/* tray bg */
+
+/* Remove individual backgrounds for a unified look */
+.modules-left .module,
+.modules-right,
+#workspaces,
 #tray {
+    background-color: transparent;
+    padding: 2px 5px; /* Add some padding for spacing */
+}
+
+/* Add subtle separators between module groups */
+.modules-left, .modules-center {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 10px;
+}
+.modules-center {
+    padding-left: 5px;
+}
+
+
+/* Keep hover effect for interactivity */
+#workspaces button:hover,
+.module:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Specific styling for active workspace */
+#workspaces button.active {
     background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
