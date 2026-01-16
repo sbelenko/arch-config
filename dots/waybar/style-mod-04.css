@@ -1,0 +1,76 @@
+/*
+ * СТИЛЬ MOD-04: Плоский
+ * Все скругления убраны. Новый стиль workspaces (квадраты и прямоугольник).
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 0; /* ИЗМЕНЕНО */
+    margin: 0; /* ИЗМЕНЕНО */
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 5px;
+}
+
+.module {
+    padding: 0 8px;
+}
+
+/* Общий стиль для всех "таблеток" модулей */
+.modules-left,
+.modules-right,
+#tray {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0; /* ИЗМЕНЕНО */
+    padding: 2px 5px;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 0; /* ИЗМЕНЕНО */
+}
+
+/* Неактивные столы - квадраты */
+#workspaces button {
+    background-color: transparent;
+    border-radius: 0; /* Квадрат */
+    padding: 0;
+    margin: 0 3px;
+    min-width: 10px; /* Размер квадрата */
+    min-height: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Активный стол - прямоугольник */
+#workspaces button.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0; /* Прямоугольник */
+    padding: 0 10px;
+    margin: 0 3px;
+    min-width: 20px;
+    color: #e8eaed;
+}
+
+#workspaces button.active:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}

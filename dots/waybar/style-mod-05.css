@@ -1,0 +1,76 @@
+/*
+ * СТИЛЬ MOD-05: Воздушный
+ * Увеличены шрифт и отступы. Новый стиль workspaces.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px; /* ИЗМЕНЕНО */
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 12px; /* ИЗМЕНЕНО */
+    margin: 5px; /* ИЗМЕНЕНО */
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 5px;
+}
+
+.module {
+    padding: 0 10px; /* ИЗМЕНЕНО */
+}
+
+/* Общий стиль для всех "таблеток" модулей */
+.modules-left,
+.modules-right,
+#tray {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px; /* ИЗМЕНЕНО */
+    padding: 4px 8px; /* ИЗМЕНЕНО */
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px 6px; /* ИЗМЕНЕНО */
+    border-radius: 12px; /* ИЗМЕНЕНО */
+}
+
+/* Неактивные столы - круги */
+#workspaces button {
+    background-color: transparent;
+    border-radius: 50%; /* Круг */
+    padding: 0;
+    margin: 0 4px; /* ИЗМЕНЕНО */
+    min-width: 12px; /* Диаметр круга */
+    min-height: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Активный стол - таблетка */
+#workspaces button.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 12px; /* Таблетка */
+    padding: 0 12px; /* ИЗМЕНЕНО */
+    margin: 0 4px; /* ИЗМЕНЕНО */
+    min-width: 22px;
+    color: #e8eaed;
+}
+
+#workspaces button.active:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}

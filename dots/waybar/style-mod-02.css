@@ -1,0 +1,76 @@
+/*
+ * СТИЛЬ MOD-02: Яркие таблетки
+ * Таблетки модулей сделаны ярче. Новый стиль workspaces.
+ */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+    color: #e8eaed;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 5px;
+}
+
+.module {
+    padding: 0 8px;
+}
+
+/* Общий стиль для всех "таблеток" модулей */
+.modules-left,
+.modules-right,
+#tray {
+    background-color: rgba(255, 255, 255, 0.15); /* ИЗМЕНЕНО */
+    border-radius: 10px;
+    padding: 2px 5px;
+}
+
+/* --- РАБОЧИЕ СТОЛЫ (GNOME Style) --- */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.15); /* ИЗМЕНЕНО */
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+/* Неактивные столы - круги */
+#workspaces button {
+    background-color: transparent;
+    border-radius: 50%; /* Круг */
+    padding: 0;
+    margin: 0 3px;
+    min-width: 10px; /* Диаметр круга */
+    min-height: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Активный стол - таблетка */
+#workspaces button.active {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 10px; /* Таблетка */
+    padding: 0 10px;
+    margin: 0 3px;
+    min-width: 20px;
+    color: #e8eaed;
+}
+
+#workspaces button.active:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
