@@ -1,52 +1,79 @@
-/*
- * Waybar Theme: 3/10 - Light Pill (Blue Accent)
- */
+/* Chrome OS Variant 3: Minimal White */
 * {
-    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    border: none;
-    min-height: 0;
+    font-family: "Google Sans", "Roboto", "JetBrainsMono Nerd Font";
+    font-weight: 400;
+    font-size: 12px;
+    color: #3c4043;
 }
 
 window#waybar {
-    background: transparent;
-    color: #202124; /* Dark text for light pills */
+    background-color: transparent;
+}
+
+window#waybar>box {
+    background-color: #ffffff;
+    box-shadow: 0 1px 6px rgba(60, 64, 67, 0.15);
+    border-radius: 28px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: #e8eaed; /* Light gray pill background */
+    margin: 5px;
+}
+
+.module {
+    padding: 0 10px;
+}
+
+.modules-left .module {
+    background-color: #f1f3f4;
     border-radius: 20px;
-    padding: 2px 12px;
-    margin: 2px 0;
+    padding: 4px 12px;
+    margin: 0 3px;
+    transition: background-color 0.2s ease;
+}
+
+.modules-left .module:hover {
+    background-color: #e8eaed;
+}
+
+.modules-right {
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    padding: 4px 8px;
+}
+
+#workspaces {
+    background-color: #f1f3f4;
+    padding: 2px 4px;
+    border-radius: 20px;
 }
 
 #workspaces button {
+    padding: 0 9px;
     color: #5f6368;
-    padding: 0 4px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-    color: #4285f4; /* Google Blue */
+    background-color: #1a73e8;
+    color: #ffffff;
 }
 
-#clock,
-#bluetooth,
-#network,
-#pulseaudio,
-#hyprland-language,
+#workspaces button:hover {
+    background-color: #e8eaed;
+}
+
 #tray {
+    background-color: transparent;
     padding: 0 6px;
 }
 
-#custom-apps {
-    color: #4285f4; /* Google Blue */
-    font-size: 18px;
-    padding-right: 8px;
-}
-
-#custom-powermenu {
-    color: #d93025; /* Google Red */
+#clock {
+    color: #1a73e8;
+    font-weight: 500;
 }

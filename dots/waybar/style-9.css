@@ -1,53 +1,80 @@
-/*
- * Waybar Theme: 9/10 - Material You Dark (Lilac)
- */
+/* Chrome OS Variant 9: Slate Gray */
 * {
-    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "Google Sans", "Roboto", "JetBrainsMono Nerd Font";
     font-weight: 500;
-    font-size: 14px;
-    border: none;
-    min-height: 0;
+    font-size: 13px;
+    color: #eceff1;
 }
 
 window#waybar {
-    background-color: #383340; /* Dark Lilac Background */
-    color: #e8eaed; /* Light Text */
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: transparent;
+}
+
+window#waybar>box {
+    background: linear-gradient(135deg, #37474f 0%, #455a64 50%, #546e7a 100%);
+    box-shadow: 0 3px 10px rgba(55, 71, 79, 0.4);
+    border-radius: 22px;
+    margin: 4px;
+    border: 1px solid rgba(144, 164, 174, 0.3);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 10px;
+    margin: 6px;
+}
+
+.module {
+    padding: 0 12px;
+}
+
+.modules-left .module {
+    background-color: rgba(176, 190, 197, 0.2);
+    border-radius: 16px;
+    padding: 4px 14px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.modules-left .module:hover {
+    background-color: rgba(176, 190, 197, 0.3);
+}
+
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 4px 10px;
+}
+
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 3px;
+    border-radius: 18px;
 }
 
 #workspaces button {
-    color: #a79eb1;
-    padding: 0 5px;
-    background-color: transparent;
+    padding: 0 10px;
+    color: #cfd8dc;
+    border-radius: 14px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.active {
-    color: #d0bfff; /* Lilac Accent */
-    border-bottom: 3px solid #d0bfff;
+    background-color: #90a4ae;
+    color: #263238;
 }
 
-#clock,
-#bluetooth,
-#network,
-#pulseaudio,
-#hyprland-language,
+#workspaces button:hover {
+    background-color: rgba(176, 190, 197, 0.2);
+}
+
 #tray {
-    padding: 0 10px;
+    background-color: rgba(176, 190, 197, 0.12);
+    border-radius: 14px;
+    padding: 2px 8px;
 }
 
-#custom-apps {
-    color: #d0bfff; /* Lilac Accent */
-    font-size: 18px;
-    padding-right: 5px;
-}
-
-#custom-powermenu {
-    color: #f28b82; /* Red for power */
+#clock {
+    color: #b0bec5;
+    font-weight: 600;
 }

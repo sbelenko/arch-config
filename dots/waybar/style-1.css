@@ -1,53 +1,83 @@
-/*
- * Waybar Theme: 1/10 - Chrome OS Classic Light (Blue Accent)
- */
+/* Chrome OS Variant 1: Classic Light Blue */
 * {
-    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "Google Sans", "Roboto", "JetBrainsMono Nerd Font";
     font-weight: 500;
-    font-size: 14px;
-    border: none;
-    min-height: 0;
+    font-size: 13px;
+    color: #202124;
 }
 
 window#waybar {
-    background-color: #f1f3f4; /* Google's light gray */
-    color: #202124; /* Google's dark gray text */
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: transparent;
+}
+
+window#waybar > box {
+    background: linear-gradient(135deg, #e8f0fe 0%, #f1f3f4 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    margin: 4px;
+    border: 1px solid rgba(66, 133, 244, 0.2);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 10px;
+    margin: 6px;
+}
+
+.module {
+    padding: 0 12px;
+}
+
+.modules-left .module {
+    background-color: rgba(66, 133, 244, 0.1);
+    border-radius: 16px;
+    padding: 4px 14px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.modules-left .module:hover {
+    background-color: rgba(66, 133, 244, 0.2);
+    transform: scale(1.05);
+}
+
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 18px;
+    padding: 4px 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2px;
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #workspaces button {
+    padding: 0 10px;
     color: #5f6368;
-    padding: 0 5px;
-    background-color: transparent;
+    border-radius: 14px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.active {
-    color: #4285f4; /* Google Blue */
-    border-bottom: 3px solid #4285f4;
+    background-color: #4285f4;
+    color: #ffffff;
 }
 
-#clock,
-#bluetooth,
-#network,
-#pulseaudio,
-#hyprland-language,
+#workspaces button:hover {
+    background-color: rgba(66, 133, 244, 0.15);
+}
+
 #tray {
-    padding: 0 10px;
+    background-color: rgba(66, 133, 244, 0.08);
+    border-radius: 14px;
+    padding: 2px 8px;
 }
 
-#custom-apps {
-    color: #4285f4; /* Google Blue */
-    font-size: 18px;
-    padding-right: 5px;
-}
-
-#custom-powermenu {
-    color: #d93025; /* Google Red */
+#clock {
+    color: #1a73e8;
+    font-weight: 600;
 }

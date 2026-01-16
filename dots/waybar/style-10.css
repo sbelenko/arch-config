@@ -1,53 +1,80 @@
-/*
- * Waybar Theme: 10/10 - Minimalist Dark
- */
+/* Chrome OS Variant 10: Teal Mint */
 * {
-    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "Google Sans", "Roboto", "JetBrainsMono Nerd Font";
     font-weight: 500;
-    font-size: 13px; /* Slightly smaller font */
-    border: none;
-    min-height: 0;
+    font-size: 13px;
+    color: #e0f2f1;
 }
 
 window#waybar {
-    background-color: #1a1a1a;
-    color: #c0c0c0;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: transparent;
+}
+
+window#waybar>box {
+    background: linear-gradient(135deg, #004d40 0%, #00695c 50%, #00796b 100%);
+    box-shadow: 0 3px 10px rgba(0, 77, 64, 0.4);
+    border-radius: 24px;
+    margin: 5px;
+    border: 1px solid rgba(77, 182, 172, 0.3);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 5px; /* Reduced padding */
+    margin: 6px;
+}
+
+.module {
+    padding: 0 12px;
+}
+
+.modules-left .module {
+    background-color: rgba(77, 182, 172, 0.2);
+    border-radius: 16px;
+    padding: 4px 14px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.modules-left .module:hover {
+    background-color: rgba(77, 182, 172, 0.35);
+}
+
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 4px 10px;
+}
+
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 3px;
+    border-radius: 18px;
 }
 
 #workspaces button {
-    color: #888888;
-    padding: 0 4px;
-    background-color: transparent;
+    padding: 0 10px;
+    color: #b2dfdb;
+    border-radius: 14px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.active {
+    background-color: #00897b;
     color: #ffffff;
-    border-bottom: 2px solid #ffffff;
 }
 
-#clock,
-#bluetooth,
-#network,
-#pulseaudio,
-#hyprland-language,
+#workspaces button:hover {
+    background-color: rgba(77, 182, 172, 0.2);
+}
+
 #tray {
-    padding: 0 8px;
+    background-color: rgba(77, 182, 172, 0.15);
+    border-radius: 14px;
+    padding: 2px 8px;
 }
 
-#custom-apps {
-    color: #ffffff;
-    font-size: 16px;
-    padding-right: 3px;
-}
-
-#custom-powermenu {
-    color: #ff6666;
+#clock {
+    color: #80cbc4;
+    font-weight: 600;
 }

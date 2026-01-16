@@ -1,13 +1,23 @@
-// Waybar Config: 5/10 - Classic Dark (Green Accent)
+// Chrome OS Variant 5: Sunset Orange
 {
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
-  "height": 34,
-  "margin": "5 5 0 5",
+  "height": 31,
   "spacing": 8,
+  "margin-top": 5,
+  "margin-left": 8,
+  "margin-right": 8,
+  "margin-bottom": 0,
   "reload_style_on_change": true,
-  "modules-left": ["custom/apps", "hyprland/submap", "mpris", "tray"],
-  "modules-center": ["hyprland/workspaces"],
+  "modules-left": [
+    "custom/apps",
+    "hyprland/submap",
+    "mpris",
+    "tray"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
   "modules-right": [
     "custom/notifications",
     "hyprland/language",
@@ -15,27 +25,120 @@
     "pulseaudio",
     "network",
     "clock",
-    "custom/powermenu"
+    "custom/powermenu",
   ],
   "custom/apps": {
     "format": "󰣇",
     "on-click": "~/.config/rofi/scripts/launcher.sh",
-    "tooltip": false
+    "tooltip": false,
+  },
+  "mpris": {
+    "format": "{player_icon}",
+    "format-paused": "{status_icon}",
+    "player-icons": {
+      "default": "󰏤",
+      "mpv": "󰈫",
+    },
+    "status-icons": {
+      "paused": "󰐊",
+    },
+    "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 12,
   },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
+      "default": "○",
       "active": "●",
-      "default": "○"
-    }
+    },
+  },
+  "custom/notifications": {
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰅸",
+      "none": "󰂜",
+      "dnd-notification": "󰅸",
+      "dnd-none": "󱏨",
+      "inhibited-notification": "󰅸",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰅸",
+      "dnd-inhibited-none": "󱏨",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click-right": "swaync-client -d -sw",
+    "on-click": "swaync-client -t -sw",
+    "escape": true,
   },
   "hyprland/language": {
-    "format": "󰗊 {short}"
+    "format": "󰗊 {}",
+    "format-en": "US",
+    "format-ru": "KH",
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ],
+    },
+    "on-click": "pavucontrol",
+  },
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal: <b>{signalStrength}%</b>\nFrequncy: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}/{cidr}</b>\nNetmask: <b>{netmask}/{cidr}</b>",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮",
   },
   "clock": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "<tt>{calendar}</tt>"
+    "format": "{:%a %d / %I:%M %p}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 4,
+      "format": {
+        "months": "<span color='#ff6f00'><b>{}</b></span>",
+        "weekdays": "<span color='#ffab00'><b>{}</b></span>",
+        "today": "<span color='#d50000'><b>{}</b></span>",
+      },
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+    "cursor": false,
   },
-  
-  "tray": { "icon-size": 14, "spacing": 10 }
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "~/.config/rofi/scripts/powermenu.sh",
+    "tooltip": false,
+  },
 }
