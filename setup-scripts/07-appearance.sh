@@ -1,6 +1,6 @@
 echo "-> Installing and applying icon theme..."
 
-USER_ICONS_DIR="$HOME/.local/share/icons"
+USER_ICONS_DIR="$HOME/.icons"
 ICON_THEME_ARCHIVE="$SCRIPT_DIR/themes/icons/Reversal-orange.tar.xz"
 ICON_THEME_NAME="Reversal-orange"
 
