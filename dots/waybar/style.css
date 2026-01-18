@@ -43,8 +43,8 @@ window#waybar > box {
     all: unset;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
-    min-width: 10px;
-    min-height: 10px;
+    min-width: 8px;
+    min-height: 8px;
     margin: 8px 5px;
     transition: all 0.3s ease-in-out;
 }
