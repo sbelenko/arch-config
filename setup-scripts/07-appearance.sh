@@ -1,17 +1,12 @@
-#!/bin/bash
-# Exit on error
-set -e
+echo "-> Installing and applying icon theme..."
 
-echo "Setting up appearance..."
-
-# Define and create user icons directory
 USER_ICONS_DIR="$HOME/.local/share/icons"
-mkdir -p "$USER_ICONS_DIR"
+ICON_THEME_ARCHIVE="$SCRIPT_DIR/themes/icons/Reversal-orange.tar.xz"
+ICON_THEME_NAME="Reversal-orange"
 
-# Unpack icon theme to user directory
-tar -xf $(pwd)/themes/icons/Reversal-orange.tar.xz -C "$USER_ICONS_DIR"
+# Create directory and unpack theme
+mkdir -p "$USER_ICONS_DIR" || handle_warning "Failed to create icon directory"
+tar -xf "$ICON_THEME_ARCHIVE" -C "$USER_ICONS_DIR" || handle_warning "Failed to unpack icon theme"
 
-# Apply icon theme if gsettings command is available
-gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange"
-
-echo "Appearance setup complete."
+# Set the icon theme
+gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME_NAME" || handle_warning "Failed to set icon theme (is gsettings installed?)"
