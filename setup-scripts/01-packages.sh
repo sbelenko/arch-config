@@ -1,7 +1,7 @@
 packages=(
   # --- System Core & Drivers (Critical for N150) ---
-  linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
-  intel-ucode           # REQUIRED: CPU Microcode (Stability & Errata Fixes)
+  #linux-firmware        # REQUIRED: GPU firmware for Plymouth/Early KMS
+  #intel-ucode           # REQUIRED: CPU Microcode (Stability & Errata Fixes)
   thermald              # CRITICAL: Prevents throttling
   nano                  # Console text editor
   unzip                 # Archive tools (Extract)
