@@ -49,6 +49,9 @@ source "$SCRIPT_DIR/setup-scripts/05-optimize.sh"
 echo -e "${GREEN}=== [6] SDDM (Theme Setup) ===${NC}"
 source "$SCRIPT_DIR/setup-scripts/06-sddm-theme.sh"
 
+echo -e "${GREEN}=== [7] SDDM (Appearance) ===${NC}"
+source "$SCRIPT_DIR/setup-scripts/07-appearance.sh"
+
 echo ""
 echo -e "${GREEN}=== INSTALLATION COMPLETE ===${NC}"
 echo "Please reboot your system."
