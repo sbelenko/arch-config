@@ -74,8 +74,8 @@ entry {
 
 listview {
     background-color:           transparent;
-    columns:                    1;
-    lines:                      8;
+    columns:                    3;
+    lines:                      10;
     cycle:                      true;
     dynamic:                    true;
     scrollbar:                  false;

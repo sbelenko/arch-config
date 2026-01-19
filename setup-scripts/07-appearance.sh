@@ -9,3 +9,5 @@ tar -xf "$SCRIPT_DIR/themes/icons/Reversal-orange.tar.xz" -C "$USER_ICONS_DIR" |
 
 # Set the icon theme
 gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME_NAME" || handle_warning "Failed to set icon theme (is gsettings installed?)"
+sed -i "s/^gtk-icon-theme-name=.*/gtk-icon-theme-name=$ICON_THEME_NAME/" ~/.config/gtk-3.0/settings.ini
+sed -i "s/^gtk-icon-theme-name=.*/gtk-icon-theme-name=$ICON_THEME_NAME/" ~/.config/gtk-4.0/settings.ini
