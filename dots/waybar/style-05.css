@@ -1,0 +1,66 @@
+@define-color accent #5294e2; /* Blue Accent */
+
+* {
+    /*all: unset;*/
+    font-family: "JetBrainsMono Nerd Font", "sans-serif";
+    font-weight: bold;
+    font-size: 12px;
+    color: #e8eaed;
+}
+/* Waybar */
+window#waybar {
+    background-color: transparent;
+}
+window#waybar > box {
+    background-color: rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 5px;
+    margin: 2px;
+}
+/* Modules */
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 5px;
+}
+.module {
+    padding: 0 8px;
+}
+.modules-left .module {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.modules-right {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+/* workspaces */
+#workspaces {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+#workspaces button {
+    all: unset;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    min-width: 8px;
+    min-height: 8px;
+    margin: 8px 5px;
+    transition: all 0.3s ease-in-out;
+}
+#workspaces button.active {
+    background-color: @accent; /* Blue Accent */
+    min-width: 35px;
+}
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#workspaces button label {
+    font-size: 0;
+}
+/* tray bg */
+#tray {
+    background-color: rgba(255, 255, 255, 0.2);
+}

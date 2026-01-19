@@ -1,10 +1,12 @@
 /*******************************************************************************
  * ROFI Color theme
- * Theme: Chrome OS Light Wide
+ * Theme: Chrome OS Powermenu Dark
+ * Style: Dark, Clean, Rounded, Horizontal
  *******************************************************************************/
 
 configuration {
     show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font 12";
 
     /* Mouse settings */
     hover-select:                true;
@@ -14,69 +16,55 @@ configuration {
 }
 
 * {
-    font:                       "JetBrainsMono Nerd Font 12";
-    bg:                         #ffffffff;
-    bg-alt:                     #f1f3f4ff;
-    fg:                         #202124ff;
-    accent:                     #4285f4ff;
+    bg:                         #282a36ff;
+    bg-alt:                     #44475aff;
+    fg:                         #f8f8f2ff;
+    accent:                     #bd93f9ff;
+    urgent:                     #ff5555ff;
 
     background-color:           transparent;
     text-color:                 @fg;
 }
 
 window {
-    enabled:                     true;
-    location:                    center;
-    anchor:                      center;
-    width:                       450px;
-    border-radius:               24px;
-    background-color:            @bg;
-    border:                      0px;
+    location:                   center;
+    anchor:                     center;
+    width:                      600px;
+    height:                     80px;
+    border-radius:              12px;
+    background-color:           @bg;
+    border:                     0px;
 }
 
 mainbox {
-    enabled:                     true;
-    spacing:                     0px;
-    background-color:            transparent;
-    children:                    [ "listview" ];
+    padding:                    15px;
+    children:                   [ listview ];
 }
 
 listview {
-    enabled:                     true;
-    columns:                     1;
-    lines:                       5;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-
-    spacing:                     10px;
-    margin:                      20px;
-    background-color:            transparent;
+    layout:                     horizontal;
+    columns:                    5;
+    lines:                      1;
+    spacing:                    15px;
+    background-color:           transparent;
 }
 
 element {
-    enabled:                     true;
-    padding:                     12px 20px;
-    border-radius:               5px;
-    background-color:            transparent;
-    text-color:                  @fg;
-    cursor:                      pointer;
+    padding:                    10px;
+    border-radius:              16px;
+    background-color:           @bg-alt;
+    text-color:                 @fg;
+    cursor:                     pointer;
 }
 
 element-text {
-    font:                        "JetBrainsMono Nerd Font 12";
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    background-color:           transparent;
+    text-color:                 inherit;
+    horizontal-align:           0.5;
+    vertical-align:             0.5;
 }
 
 element selected {
-    background-color:           #e8eaedff;
-    text-color:                 @fg;
+    background-color:           @accent;
+    text-color:                 @bg;
 }
