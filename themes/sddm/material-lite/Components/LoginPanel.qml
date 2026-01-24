@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import Qt5Compat.GraphicalEffects 1.0
 
 Item {
-  property var user: userSelection.selectedUser
+  property var user: userField.text
   property var password: passwordField.text
   property var session: sessionPanel.session
   property var inputHeight: Screen.height * 0.032
@@ -92,8 +92,8 @@ Item {
       horizontalCenter: parent.horizontalCenter
     }
 
-    UserSelection {
-      id: userSelection
+    UserField {
+      id: userField
       height: inputHeight
       width: parent.width
     }
