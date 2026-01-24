@@ -3,11 +3,9 @@ import QtQuick.Controls 2.15
 
 Item {
     id: root
-    height: inputHeight
-    width: inputWidth
 
     property alias selectedUser: userName.text
-    property int currentIndex: userModel.lastIndex
+    property int currentIndex: userModel.count > 0 ? (userModel.lastIndex >= 0 && userModel.lastIndex < userModel.count ? userModel.lastIndex : 0) : -1
 
     function changeUser(step) {
         var newIndex = currentIndex + step;
@@ -17,6 +15,17 @@ Item {
             newIndex = userModel.count - 1;
         }
         currentIndex = newIndex;
+    }
+
+    Connections {
+        target: userModel
+        function onCountChanged() {
+            if (userModel.count > 0) {
+                root.currentIndex = userModel.lastIndex >= 0 && userModel.lastIndex < userModel.count ? userModel.lastIndex : 0;
+            } else {
+                root.currentIndex = -1;
+            }
+        }
     }
 
     Item {
@@ -65,7 +74,6 @@ Item {
                 anchors.margins: 12
                 fillMode: Image.PreserveAspectFit
                 sourceSize: Qt.size(width, height)
-                color: config.OnSurface
             }
             
             Rectangle {
@@ -93,7 +101,7 @@ Item {
         // User Name
         Text {
             id: userName
-            text: userModel.get(root.currentIndex).name
+            text: root.currentIndex >= 0 ? userModel.get(root.currentIndex).name : ""
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             color: config.OnSurface
