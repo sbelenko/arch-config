@@ -30,6 +30,7 @@
     "thermald",
     "ucode",
     "waybar",
+    "XCURSOR",
     "ZRAM",
     "zstd"
   ]
