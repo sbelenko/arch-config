@@ -20,4 +20,4 @@ echo "-> Setting cursor theme system-wide..."
 {
     echo "XCURSOR_THEME=Future-cursors"
     echo "XCURSOR_SIZE=24"
-} >> /etc/environment
+} | sudo tee -a /etc/environment
