@@ -39,6 +39,7 @@ packages=(
   rofi                   # Launcher
 
   # --- Utilities ---
+  zram-generator        # ZRAM for performance
   slurp grim satty hyprshot     # Screenshots
   wl-clipboard          # Clipboard (Essential)
   kitty                 # Terminal
