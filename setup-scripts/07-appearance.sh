@@ -14,3 +14,10 @@ echo "-> Installing and applying cursor theme..."
 ICONS_DIR="/usr/share/icons"
 mkdir -p "$ICONS_DIR" || handle_warning "Failed to create icon directory"
 tar -xf "$SCRIPT_DIR/themes/icons/Future-cursors.tar.gz" -C "$ICONS_DIR" || handle_warning "Failed to unpack icon theme"
+
+# Set cursor theme system-wide
+echo "-> Setting cursor theme system-wide..."
+{
+    echo "XCURSOR_THEME=Future-cursors"
+    echo "XCURSOR_SIZE=24"
+} >> /etc/environment
