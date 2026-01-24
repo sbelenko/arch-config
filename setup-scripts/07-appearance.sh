@@ -7,6 +7,7 @@ mkdir -p "$USER_ICONS_DIR" || handle_warning "Failed to create icon directory"
 tar -xf "$SCRIPT_DIR/themes/icons/Reversal-orange.tar.xz" -C "$USER_ICONS_DIR" || handle_warning "Failed to unpack icon theme"
 
 # Set the icon theme
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" || handle_warning "Failed to set color scheme (is gsettings installed?)"
 gsettings set org.gnome.desktop.interface icon-theme "Reversal-orange" || handle_warning "Failed to set icon theme (is gsettings installed?)"
 
 # Cursor
