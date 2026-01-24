@@ -5,23 +5,23 @@ Item {
     id: root
 
     property alias selectedUser: userName.text
-    property int currentIndex: userModel.count > 0 ? (userModel.lastIndex >= 0 && userModel.lastIndex < userModel.count ? userModel.lastIndex : 0) : -1
+    property int currentIndex: sddm.userModel.count > 0 ? (sddm.userModel.lastIndex >= 0 && sddm.userModel.lastIndex < sddm.userModel.count ? sddm.userModel.lastIndex : 0) : -1
 
     function changeUser(step) {
         var newIndex = currentIndex + step;
-        if (newIndex >= userModel.count) {
+        if (newIndex >= sddm.userModel.count) {
             newIndex = 0;
         } else if (newIndex < 0) {
-            newIndex = userModel.count - 1;
+            newIndex = sddm.userModel.count - 1;
         }
         currentIndex = newIndex;
     }
 
     Connections {
-        target: userModel
+        target: sddm.userModel
         function onCountChanged() {
-            if (userModel.count > 0) {
-                root.currentIndex = userModel.lastIndex >= 0 && userModel.lastIndex < userModel.count ? userModel.lastIndex : 0;
+            if (sddm.userModel.count > 0) {
+                root.currentIndex = sddm.userModel.lastIndex >= 0 && sddm.userModel.lastIndex < sddm.userModel.count ? sddm.userModel.lastIndex : 0;
             } else {
                 root.currentIndex = -1;
             }
@@ -57,14 +57,14 @@ Item {
         id: userSelectionRow
         anchors.fill: parent
         spacing: 10
-        visible: userModel.count > 0
+        visible: sddm.userModel.count > 0
 
         // Left Arrow
         Item {
             id: leftArrowContainer
             width: parent.height
             height: parent.height
-            visible: userModel.count > 1
+            visible: sddm.userModel.count > 1
             anchors.verticalCenter: parent.verticalCenter
 
             Image {
@@ -101,7 +101,7 @@ Item {
         // User Name
         Text {
             id: userName
-            text: root.currentIndex >= 0 ? userModel.get(root.currentIndex).name : ""
+            text: root.currentIndex >= 0 ? sddm.userModel.get(root.currentIndex).name : ""
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             color: config.OnSurface
@@ -116,7 +116,7 @@ Item {
             id: rightArrowContainer
             width: parent.height
             height: parent.height
-            visible: userModel.count > 1
+            visible: sddm.userModel.count > 1
             anchors.verticalCenter: parent.verticalCenter
             
             Image {
