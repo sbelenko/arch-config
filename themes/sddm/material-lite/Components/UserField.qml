@@ -20,7 +20,7 @@ TextField {
 	placeholderTextColor: config.OnSurfaceVariant
 	horizontalAlignment: Text.AlignHCenter
 	placeholderText: "Username"
-	text: userModel.lastUser
+	text: sddm.lastUser
 	
 	background: Item {
 		implicitWidth: 280
