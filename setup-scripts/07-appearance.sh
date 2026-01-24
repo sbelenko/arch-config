@@ -15,9 +15,7 @@ ICONS_DIR="/usr/share/icons"
 sudo mkdir -p "$ICONS_DIR" || handle_warning "Failed to create icon directory"
 sudo tar -xf "$SCRIPT_DIR/themes/icons/Future-cursors.tar.gz" -C "$ICONS_DIR" || handle_warning "Failed to unpack icon theme"
 
-# Set cursor theme system-wide
-echo "-> Setting cursor theme system-wide..."
-{
-    echo "XCURSOR_THEME=Future-cursors"
-    echo "XCURSOR_SIZE=24"
-} | sudo tee -a /etc/environment
+# Set cursor theme system-wide using the index.theme method
+echo "-> Setting cursor theme system-wide for all users (including SDDM)..."
+sudo mkdir -p /usr/share/icons/default
+echo -e "[Icon Theme]\nInherits=Future-cursors" | sudo tee /usr/share/icons/default/index.theme > /dev/null
