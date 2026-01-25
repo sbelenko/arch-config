@@ -74,9 +74,7 @@
     "escape": true,
   },
   "hyprland/language": {
-    "format": "󰗊 {}",
-    "format-en": "US",
-    "format-ru": "KH",
+    "format": "󰗊 {short}",
   },
   "bluetooth": {
     "format": "󰂯",
