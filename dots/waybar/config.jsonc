@@ -19,7 +19,7 @@
     "custom/notifications",
     "hyprland/language",
     "bluetooth",
-    "pulseaudio",
+    "wireplumber",
     "network",
     // "battery",
     "custom/powermenu",
