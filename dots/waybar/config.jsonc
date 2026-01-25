@@ -92,11 +92,6 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": ["", "", ""],
     },
     "on-scroll-up": "swayosd-client --output-volume raise",
