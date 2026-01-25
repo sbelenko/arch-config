@@ -1,10 +1,10 @@
 MKINITCPIO_CONF="/etc/mkinitcpio.conf"
 
 if [ -f "$MKINITCPIO_CONF" ]; then
-    # 1. Add i915 module (Intel Early KMS) - Critical for Plymouth
-    if ! grep -q "i915" "$MKINITCPIO_CONF"; then
-        echo "-> Adding i915 to MODULES..."
-        sudo sed -i 's/MODULES=(/MODULES=(i915 /' "$MKINITCPIO_CONF" || handle_warning "Failed to add i915"
+    # 1. Add xe module (Intel Early KMS) - Critical for Plymouth
+    if ! grep -q "xe" "$MKINITCPIO_CONF"; then
+        echo "-> Adding xe to MODULES..."
+        sudo sed -i 's/MODULES=(/MODULES=(xe/' "$MKINITCPIO_CONF" || handle_warning "Failed to add xe"
     fi
 
     # 2. Add plymouth hook
