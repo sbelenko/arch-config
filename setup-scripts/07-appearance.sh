@@ -20,3 +20,7 @@ sudo tar -xf "$SCRIPT_DIR/themes/icons/Future-cursors.tar.gz" -C "$ICONS_DIR" ||
 echo "-> Setting cursor theme system-wide for all users (including SDDM)..."
 sudo mkdir -p /usr/share/icons/default
 echo -e "[Icon Theme]\nInherits=Future-cursors" | sudo tee /usr/share/icons/default/index.theme > /dev/null
+
+# OSD
+sudo systemctl enable swayosd-libinput-backend.service || handle_warning "Failed to enable swayosd"
+

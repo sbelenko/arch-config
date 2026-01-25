@@ -33,6 +33,7 @@ packages=(
   waybar                 # Status bar
   network-manager-applet # Wi-Fi tray icon for Waybar (Crucial for UX)
   swaync                 # Notifications
+  swayosd                # HUD
   nwg-look               # GTK Theme manager
   plymouth               # Boot splash
   sddm                   # Login manager
