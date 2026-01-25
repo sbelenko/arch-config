@@ -11,9 +11,7 @@ window#waybar {
 }
 window#waybar > box {
     background-color: rgba(0, 0, 0, 0.55);
-    box-shadow: 0px 0px 2px #000;
     border-radius: 5px;
-    margin: 2px;
 }
 /* Modules */
 .modules-left,
