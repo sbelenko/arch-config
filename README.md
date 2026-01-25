@@ -6,27 +6,49 @@ Personal scripts and configuration files for automating an Arch Linux desktop se
 
 ---
 
-## Installation
+## Arch Linux Base Installation
 
-These scripts are intended for personal use on a fresh Arch Linux installation.
+These are the choices made during the `archinstall` process before running the setup scripts.
 
-1.  **Prerequisite:** Install `git`.
+*   **Disk configuration:** `ext4`
+*   **Partitioning:** Wipe all selected drives and use a best-effort default partition layout (no separate `/home`).
+*   **Bootloader:** `Systemd-boot`
+*   **Authentication:**
+    *   Root Password: `None` (leave empty).
+    *   User Account: Create a user and promote to `sudo`.
+*   **Applications:**
+    *   Bluetooth: `Enabled`
+    *   Audio: `pipewire`
+*   **Network configuration:** `NetworkManager`
+*   **Timezone:** `Europe/Kyiv`
+
+## Pre-Setup Steps
+
+After rebooting into the new Arch Linux installation:
+
+1.  **Connect to the network** (if using Wi-Fi):
     ```bash
-    sudo pacman -Syu git
+    nmtui
     ```
 
-2.  **Clone & Run:**
-    Clone the repository, navigate into the directory, make the script executable and run it.
+2.  **Install `git` and clone the repository:**
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
-    chmod +x setup.sh
-    ./setup.sh
+    sudo pacman -S git
+    git clone https://github.com/sbelenko/arch-config.git
+    cd arch-config
     ```
 
-3.  **Reboot:**
-    A reboot is required for all changes to take effect.
-    ```bash
-    reboot
-    ```
+## Running the Setup
 
+Once the repository is cloned, make the script executable and run it:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+After the script finishes, a reboot is required.
+
+```bash
+reboot
+```
