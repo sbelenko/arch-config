@@ -7,7 +7,13 @@
   "margin-left": 4,
   "margin-right": 4,
   "reload_style_on_change": true, //
-  "modules-left": ["custom/apps", "hyprland/workspaces", "hyprland/submap", "mpris", "tray"],
+  "modules-left": [
+    "custom/apps",
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "mpris",
+    "tray",
+  ],
   "modules-center": ["clock"],
   "modules-right": [
     "custom/notifications",
@@ -95,6 +101,8 @@
       "car": "",
       "default": ["", "", ""],
     },
+    "on-scroll-up": "swayosd-client --output-volume raise",
+    "on-scroll-down": "swayosd-client --output-volume lower",
     "on-click": "pavucontrol",
   },
   "network": {
