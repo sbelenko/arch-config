@@ -25,7 +25,6 @@
     "pacman",
     "pavucontrol",
     "powermenu",
-    "pulseaudio",
     "rgba",
     "rofi",
     "sandboxed",
@@ -36,6 +35,7 @@
     "thermald",
     "ucode",
     "waybar",
+    "wireplumber",
     "XCURSOR",
     "ZRAM",
     "zstd"
