@@ -36,7 +36,7 @@ fi
 
 # 4. Silent Boot Params
 ENTRIES_DIR="/boot/loader/entries"
-BOOT_PARAMS="quiet splash loglevel=3 rd.udev.log_level=3 vt.global_cursor_default=0"
+BOOT_PARAMS="quiet splash loglevel=3 rd.udev.log_level=3 vt.global_cursor_default=0 i915.fastboot=1"
 
 if [ -d "$ENTRIES_DIR" ]; then
     for file in "$ENTRIES_DIR"/*.conf; do
