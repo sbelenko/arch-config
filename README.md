@@ -1,6 +1,6 @@
 # Arch Linux Configuration
 
-![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
+![Arch Linux](https://archlinux.org/static/logos/archlinux-logo-dark-90dpi.png)
 
 Personal scripts and configuration files for automating an Arch Linux desktop setup.
 
@@ -10,8 +10,9 @@ Personal scripts and configuration files for automating an Arch Linux desktop se
 
 These are the choices made during the `archinstall` process before running the setup scripts.
 
-*   **Disk configuration:** `ext4`
-*   **Partitioning:** Wipe all selected drives and use a best-effort default partition layout (no separate `/home`).
+*   **Disk configuration:**
+    *   Filesystem: `ext4`
+    *   Partitioning: Wipe all selected drives and use a best-effort default partition layout (no separate `/home`).
 *   **Bootloader:** `Systemd-boot`
 *   **Authentication:**
     *   Root Password: `None` (leave empty).
