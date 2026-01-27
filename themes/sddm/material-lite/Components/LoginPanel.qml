@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import Qt5Compat.GraphicalEffects 1.0
 
 Item {
-  property var user: userField.text
+  property var user: userField.currentName
   property var password: passwordField.text
   property var session: sessionPanel.session
   property var inputHeight: Screen.height * 0.032
@@ -102,6 +102,7 @@ Item {
       id: passwordField
       height: inputHeight
       width: parent.width
+      focus: true
       onAccepted: loginButton.clicked()
     }
 
