@@ -1,9 +1,3 @@
-/*******************************************************************************
- * ROFI Color theme
- * Theme: Raycast Dark
- * Style: Dark, Clean, Rounded
- *******************************************************************************/
-
 configuration {
     modi:                       "drun,run";
     show-icons:                 true;
@@ -17,6 +11,8 @@ configuration {
     me-select-entry:             "";
     me-accept-entry:             "MousePrimary";
     kb-cancel:                   "Escape,MousePrimary";
+    ml-row-up: "";
+    ml-row-down: "";
 }
 
 * {

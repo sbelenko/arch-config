@@ -1,9 +1,13 @@
 configuration {
-    show-icons:                 false;
+    show-icons:                  false;
+
+    /* Mouse settings */
     hover-select:                true;
     me-select-entry:             "";
     me-accept-entry:             "MousePrimary";
     kb-cancel:                   "Escape,MousePrimary";
+    ml-row-up: "";
+    ml-row-down: "";
 }
 
 * {
